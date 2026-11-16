@@ -397,3 +397,5 @@ body.touch #practice .pbar kbd { display: none; }
 body.touch #practice .pbar { top: calc(var(--s) * 132px); }
 body.touch #practice .pguide { right: calc(var(--s) * 150px); top: 8px; max-height: calc(46vh / var(--s)); }
 body.touch .hud .practice { display: none; }
+
+.seg.wrap { flex-wrap: wrap; row-gap: 6px; }

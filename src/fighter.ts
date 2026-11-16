@@ -27,6 +27,8 @@ export interface Ctrl {
   mx: number; mz: number; dash: boolean; guard: boolean;
   J: boolean; K: boolean; S: boolean; jump: boolean; Jh?: boolean; grab: boolean; counter: boolean; transform: boolean; s1: boolean; s2: boolean;
 }
+/** how far one follow-up attack can be turned with the stick */
+export const STEER_MAX = Math.PI / 4;
 export const emptyCtrl = (): Ctrl => ({ mx: 0, mz: 0, dash: false, guard: false, J: false, K: false, S: false, jump: false, grab: false, counter: false, transform: false, s1: false, s2: false });
 const BUFFERED: (keyof Ctrl)[] = ['J', 'K', 'S', 'jump', 'grab', 'counter', 'transform', 's1', 's2'];
 
@@ -52,7 +54,11 @@ export class Fighter {
   freeze = 0; hitT = 0; shake = 0; flash = 0; flashColor = new THREE.Color(1, 1, 1); invuln = 0; combo = 0; comboDmg = 0; comboT = 0;
   lastHitBy?: Fighter; lastHitAt = -999; koPending = false; stunFor = 20; downFace = false;
   poisonT = 0; poisonBy?: Fighter; confuseT = 0; veilT = 0;
-  grabbedBy?: Fighter; holding?: Fighter; throwKind: 'normal' | 'hip' | 'counter' = 'normal';
+  grabbedBy?: Fighter; holding?: Fighter; throwKind: 'normal' | 'over' | 'hip' | 'counter' = 'normal';
+  /** the current attack was aimed with the stick, so it does not auto-face a target */
+  steered = false;
+  /** over-the-shoulder throws: the opponent is carried up and dropped behind */
+  get overThrow() { return this.throwKind === 'hip' || this.throwKind === 'over'; }
   ctrl: Ctrl = emptyCtrl(); prev: Ctrl = emptyCtrl(); buf: Partial<Record<keyof Ctrl, number>> = {};
   stats = { dmg: 0, taken: 0, kos: 0, ringouts: 0, maxCombo: 0 };
   roundWins = 0; alive = true; aura?: THREE.Object3D; blade?: THREE.Mesh; hpView = 1000;
@@ -129,8 +135,18 @@ export class Fighter {
     this.move = m; this.hitDone.clear(); this.queued = undefined; this.queuedGrab = false; this.specialDone = false;
     this.chargeT = m.charge ? 0 : -1; this.charged = false;
     if (this.ctrl.dash) this.dashLock = true; // a running attack ends the run
-    const tgt = world.nearestEnemy(this, 4);
-    if (tgt && m.special !== 'teleport') this.faceToward(tgt.pos, 1);
+    // a follow-up attack can be steered: holding a direction turns it up to 45 degrees from where the last one pointed
+    const sl = Math.hypot(this.ctrl.mx, this.ctrl.mz);
+    // the player aims by hand: no strike turns toward an enemy by itself (난무 and specials still seek their target)
+    this.steered = this.isPlayer && !world.autopilot && !m.nanmu && !m.special;
+    if (this.steered && !(this.state === 'attack' && sl > 0.3)) { /* keeps pointing where it already points */ }
+    else if (this.steered) {
+      let diff = Math.atan2(this.ctrl.mx, this.ctrl.mz) - this.yaw; diff = Math.atan2(Math.sin(diff), Math.cos(diff));
+      this.yaw += Math.max(-STEER_MAX, Math.min(STEER_MAX, diff));
+    } else {
+      const tgt = world.nearestEnemy(this, 4);
+      if (tgt && m.special !== 'teleport') this.faceToward(tgt.pos, 1);
+    }
     this.setState('attack');
     this.play(m.anim, { speed: m.speed, loop: false, fade: 0.05 });
     if (m.invuln) this.invuln = m.invuln;
@@ -204,6 +220,7 @@ export class Fighter {
       case 'land': this.vel.x *= 0.6; this.vel.z *= 0.6; if (this.stateT > 6) this.toNeutral(); break;
       case 'attack': this.updateAttack(world); break;
       case 'guard': {
+        // a guard is committed to the direction it was raised in: to face elsewhere, drop it, turn, and guard again
         this.vel.x *= 0.6; this.vel.z *= 0.6;
         if (!c.guard) this.toNeutral(); else if (this.pressed('grab')) this.startGrab(); else if (this.pressed('counter')) { this.setState('counter'); this.play('Sword_Block', { speed: 1.4, loop: false }); }
         break;
@@ -213,9 +230,11 @@ export class Fighter {
       case 'throwing': {
         const v = this.holding;
         if (v && v.state === 'thrown') {
-          const f = this.forward(); const lift = this.throwKind === 'hip' ? Math.min(0.8, this.stateT * 0.04) : Math.min(0.45, this.stateT * 0.016);
-          v.pos.set(this.pos.x + f.x * 0.7, this.pos.y + lift, this.pos.z + f.z * 0.7); v.yaw = this.yaw + Math.PI; v.vel.set(0, 0, 0);
-          if (this.stateT === (this.throwKind === 'hip' ? 22 : 26)) world.releaseThrow(this, v);
+          const f = this.forward(); const lift = this.overThrow ? Math.min(0.8, this.stateT * 0.04) : Math.min(0.45, this.stateT * 0.016);
+          // shoulder throw: the opponent is hauled from the front, up over the shoulder, to behind
+          const k = this.throwKind === 'over' ? Math.min(1, Math.max(0, (this.stateT - 8) / 14)) : 0; const off = 0.7 - 1.1 * k * k; const ly = this.throwKind === 'over' ? lift + 0.25 * k : lift;
+          v.pos.set(this.pos.x + f.x * off, this.pos.y + ly, this.pos.z + f.z * off); v.yaw = this.yaw + Math.PI; v.vel.set(0, 0, 0);
+          if (this.stateT === (this.overThrow ? 22 : 26)) world.releaseThrow(this, v);
         }
         // jujutsu: after the release the throw can be jump-cancelled to chase the tossed opponent
         if (this.style.comboGrab && this.throwKind !== 'hip' && this.stateT > 27 && this.pressed('jump')) {
@@ -278,7 +297,12 @@ export class Fighter {
     else if (this.grounded && first && t < first.from && !m.radial && !m.special) {
       // homing step: close the gap to a target in front so strikes connect
       const tgt = world.nearestEnemy(this, 2.6); const want = first.limb.startsWith('foot') ? 0.88 : first.limb.startsWith('hand') ? 0.74 : 0.62;
-      if (tgt) {
+      if (this.steered) { // aimed by hand: step where it points, never turn; only stop short of someone already straight ahead
+        const f = this.forward(); let sp = 1.6;
+        if (tgt) { const d = tgt.pos.clone().sub(this.pos); d.y = 0; const dist = d.length() || 1; if ((d.x * f.x + d.z * f.z) / dist > 0.7) sp = dist > want ? Math.min(4.5, (dist - want) * 8) : 0; }
+        this.vel.x = f.x * sp; this.vel.z = f.z * sp;
+      }
+      else if (tgt) {
         const d = tgt.pos.clone().sub(this.pos); d.y = 0; const dist = d.length();
         this.faceToward(tgt.pos, 0.2);
         const sp = dist > want ? Math.min(4.5, (dist - want) * 8) : 0; const f = this.forward(); this.vel.x = f.x * sp; this.vel.z = f.z * sp;
@@ -438,6 +462,8 @@ export class Fighter {
 }
 
 export interface World {
+  /** demo mode: the player character is driven by the AI and aims like one */
+  autopilot?: boolean;
   nearestEnemy(f: Fighter, maxD?: number): Fighter | undefined;
   checkHits(f: Fighter, m: MoveDef, hitIndex: number): void;
   tryGrab(f: Fighter, cmd: boolean, combo?: boolean): boolean;

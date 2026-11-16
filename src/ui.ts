@@ -106,6 +106,7 @@ export function screens(g: Game) {
     select() {
       const p = g.pcfg; const st = STYLES[p.style];
       const el = h(`<div class="screen select">${sheet('FIGHTER', '캐릭터 · 비전서', `
+        ${g.match.practice ? '<div class="field"><label>맵</label><div class="seg wrap" id="pmap"></div></div>' : ''}
         <div class="field"><label>체형</label><div class="seg" id="body"></div></div>
         <div class="field"><label>색상</label><div class="swatches" id="sw"></div></div>
         <div class="styles" id="style"></div>
@@ -116,6 +117,8 @@ export function screens(g: Game) {
         </div>
         <div class="stats">${statBars(p.style)}</div>`, 'side')}</div>`);
       setLayer(el);
+      const pm = el.querySelector('#pmap');
+      if (pm) for (const m of Object.values(MAPS)) { const s2 = h(`<span class="${MAP.cur.id === m.id ? 'on' : ''}">${m.name}</span>`); s2.onclick = () => { click(); g.setMap(m.id); g.refreshSelect(); this.select(); }; pm.append(s2); }
       const body = el.querySelector('#body')!;
       for (const [lab, v] of [['남', 'male'], ['여', 'female']] as const) { const s2 = h(`<span class="${p.body === v ? 'on' : ''}">${lab}</span>`); s2.onclick = () => { click(); if (p.body !== v && (p.suit === SUITS[0] || p.suit === SUITS[1])) p.suit = v === 'female' ? SUITS[1] : SUITS[0]; p.body = v; g.refreshSelect(); this.select(); }; body.append(s2); }
       const sw = el.querySelector('#sw')!;
@@ -200,7 +203,7 @@ export function screens(g: Game) {
           <aside>
             <h3>추천 연계</h3><ol class="routes">${st.combos.map((c) => `<li>${c}</li>`).join('')}</ol>
             <h3>비전서 특성</h3><ul class="routes">${st.traits.map((t) => `<li>${t}</li>`).join('')}</ul>
-            <h3>공통</h3><ul class="routes"><li>X+C 회피기(라운드당 2회) · Z+X 잡기 · Z+C 반격 · Z 가드 · 다운 중 C 기상 공격 · Space 2번 2단 점프</li><li>공격 &gt; 잡기 &gt; 가드·반격 &gt; 공격</li><li>변신 중 X X X 정령검 · 1 돌진 베기 · 2 회오리 베기</li></ul>
+            <h3>공통</h3><ul class="routes"><li>X+C 회피기(라운드당 2회) · Z+X 잡기(엎어치기: 뒤로 던짐) · Z+C 반격 · Z 가드 · 다운 중 C 기상 공격 · Space 2번 2단 점프</li><li>공격 &gt; 잡기 &gt; 가드·반격 &gt; 공격</li><li>변신 중 X X X 정령검 · 1 돌진 베기 · 2 회오리 베기</li></ul>
           </aside>
         </div>`, 'wide')}</div>`);
       el.querySelectorAll('.tabs span').forEach((sp) => ((sp as HTMLElement).onclick = () => { click(); screens(g).moves(fromPause, (sp as HTMLElement).dataset.id!, fromSelect); }));

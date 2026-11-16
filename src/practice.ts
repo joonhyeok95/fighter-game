@@ -7,7 +7,7 @@ export type DummyMode = 'idle' | 'attack' | 'guard';
 const MODES: [DummyMode, string, string][] = [
   ['idle', '대기', '가만히 서 있는다 — 콤보 연습'],
   ['attack', '공격', '다가와서 한 대씩 친다 — Z+C 반격 · Z 가드 · X+C 회피 연습'],
-  ['guard', '가드', '계속 막고 있는다 — Z+X 잡기 연습'],
+  ['guard', '가드', '다가와서 계속 막는다 — Z+X 잡기(엎어치기) 연습'],
 ];
 /** how often the partner throws its single strike, in ticks */
 const ATTACK_EVERY = 84;
@@ -44,7 +44,7 @@ function guideHtml(g: Game) {
   const st = STYLES[g.pcfg.style];
   const li = (a: string[]) => a.map((c) => `<li>${keys(c)}</li>`).join('');
   return `<p class="desc">${st.desc}</p>
-    <h4>기본 조작</h4><ul>${li(['X 손 · C 발 · Z 가드 · Space 점프(2단)', 'Z+X 잡기 · Z+C 반격 · X+C 회피', '방향 두 번: 대시 → 대시 X 아머 어택 / 대시 C 날라차기', 'V 연타: 난무 (판당 1회) · O 변신'])}</ul>
+    <h4>기본 조작</h4><ul>${li(['X 손 · C 발 · Z 가드 · Space 점프(2단)', 'Z+X 잡기(엎어치기: 뒤로 던짐) · Z+C 반격 · X+C 회피', '가드 중에는 방향을 바꿀 수 없다 (풀고 → 돌고 → 다시 가드)', '공격은 바라보는 방향으로 나간다 (자동 조준 없음)', '공격 중 방향키: 다음 공격을 최대 45° 꺾는다', '방향 두 번: 대시 → 대시 X 아머 어택 / 대시 C 날라차기', 'V 연타: 난무 (판당 1회) · O 변신'])}</ul>
     <h4>${st.name} 연계</h4><ol>${li(st.combos)}</ol>
     <h4>특성</h4><ul>${li(st.traits)}</ul>
     <h4>상성</h4><ul><li>공격 &gt; 잡기 &gt; 가드·반격 &gt; 공격</li><li>상대 <b>공격</b> 모드: 맞기 직전에 ${keys('Z+C')} 반격</li><li>상대 <b>가드</b> 모드: 때리지 말고 ${keys('Z+X')} 잡기</li></ul>`;
@@ -71,7 +71,16 @@ export function dummyCtrl(g: Game, f: Fighter): Ctrl {
   const c = emptyCtrl(); const P = g.player; if (!P || g.dummy === 'idle') return c;
   const dx = P.pos.x - f.pos.x, dz = P.pos.z - f.pos.z, d = Math.hypot(dx, dz) || 1;
   const free = f.controllable() && f.grounded;
-  if (g.dummy === 'guard') { if (free || f.state === 'guard') { f.faceToward(P.pos, 0.3); c.guard = true; } return c; }
+  if (g.dummy === 'guard') {
+    // come to the player and guard facing them. A raised guard cannot turn, so when the player steps
+    // around it (or away) the guard is dropped, the partner turns / follows, and guards again.
+    let off = Math.atan2(dx, dz) - f.yaw; off = Math.abs(Math.atan2(Math.sin(off), Math.cos(off)));
+    if (f.state === 'guard' || f.state === 'blockstun') { c.guard = d < 1.9 && off < 0.8; return c; }
+    if (!free) return c;
+    if (d > 1.25) { c.mx = dx / d; c.mz = dz / d; return c; }
+    if (off > 0.2) { f.faceToward(P.pos, 0.35); return c; }
+    c.guard = true; return c;
+  }
   // attack: walk into range, then one clean strike on a steady beat so its timing can be learned
   if (!free) return c;
   if (g.dummyT > 0) g.dummyT--;

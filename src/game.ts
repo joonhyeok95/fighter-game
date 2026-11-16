@@ -424,14 +424,16 @@ class Game implements World {
       if (cmd || combo) okStates.push('hitstun');
       if (!okStates.includes(v.state) || !v.grounded || v.invuln > 0) continue;
       this.startThrow(f, v, cmd ? 'hip' : 'normal');
-      UI.popText(this, f, cmd ? '업어치기!' : combo ? '잡기 캔슬!' : '잡기!', '#ffd84a');
+      UI.popText(this, f, cmd ? '업어치기!' : combo ? '잡기 캔슬!' : f.style.comboGrab ? '잡기!' : '엎어치기!', '#ffd84a');
       return true;
     }
     return false;
   }
-  startThrow(f: Fighter, v: Fighter, kind: 'normal' | 'hip' | 'counter') {
+  startThrow(f: Fighter, v: Fighter, kind: 'normal' | 'over' | 'hip' | 'counter') {
+    if (kind === 'normal' && !f.style.comboGrab) kind = 'over'; // the basic grab is a shoulder throw: the opponent goes over and lands behind
     f.faceToward(v.pos, 1); f.setState('throwing'); f.holding = v; f.throwKind = kind; f.move = undefined;
-    f.play(kind === 'hip' ? 'pull_throw' : 'OverhandThrow', { speed: kind === 'hip' ? 1.3 : 1.5, loop: false });
+    const over = kind === 'hip' || kind === 'over';
+    f.play(over ? 'pull_throw' : 'OverhandThrow', { speed: over ? 1.3 : 1.5, loop: false });
     v.setState('thrown'); v.grabbedBy = f; v.play('Hit_Knockback', { loop: false, speed: 0.5 }); v.move = undefined;
     this.fx.hit(v.pos.clone().add(new THREE.Vector3(0, 0.75, 0)), 'grab', new THREE.Vector3(), 1); this.hitStop(f, v, 5);
   }
@@ -441,10 +443,11 @@ class Game implements World {
     f.combo++; f.comboDmg += dmg; f.comboT = 80; f.stats.maxCombo = Math.max(f.stats.maxCombo, f.combo);
     this.damage(f, v, dmg, v.pos.clone().add(new THREE.Vector3(0, 0.7, 0)), 3);
     if (kind === 'hip') { v.pos.set(f.pos.x + fw.x * 0.2, f.pos.y + 1.0, f.pos.z + fw.z * 0.2); v.vel.set(-fw.x * 3.5, -1.5 * VS, -fw.z * 3.5); } // over the shoulder, slammed down behind
+    else if (kind === 'over') { v.pos.set(f.pos.x - fw.x * 0.4, f.pos.y + 1.05, f.pos.z - fw.z * 0.4); v.vel.set(-fw.x * 4.2, 1.6 * VS, -fw.z * 4.2); } // 엎어치기: over the shoulder and away behind
     else if (f.style.comboGrab) v.vel.set(fw.x * 0.9, 5.4 * VS, fw.z * 0.9); // jujutsu: toss the opponent up in front, ready for an air chase
     else v.vel.set(fw.x * 7.5, 4.5 * VS, fw.z * 7.5);
-    v.launch(kind !== 'hip'); v.freeze = 0;
-    this.camShake = 0.28; this.fovKick = 2.4; this.fx.hit(v.pos.clone().add(new THREE.Vector3(0, 0.7, 0)), 'heavy', fw, 3);
+    v.launch(kind !== 'hip' && kind !== 'over'); v.freeze = 0;
+    this.camShake = 0.28; this.fovKick = 2.4; this.fx.hit(v.pos.clone().add(new THREE.Vector3(0, 0.7, 0)), 'heavy', kind === 'over' ? fw.clone().negate() : fw, 3);
   }
 
   // ---------- movement events
