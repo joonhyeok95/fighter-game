@@ -13,6 +13,7 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { FX, makeAura, makeBlade } from './fx';
 import * as UI from './ui';
+import { initTouch, syncTouch, pad } from './touch';
 
 type Screen = 'loading' | 'title' | 'menu' | 'setup' | 'select' | 'game' | 'pause' | 'round' | 'result' | 'moves' | 'settings' | 'credits';
 
@@ -56,6 +57,8 @@ const AI_ROSTER: [string, number, 'male' | 'female', string][] = [
 ];
 // hit-feel tables by weight (1 light, 2 medium, 3 heavy)
 const HITSTOP = [0, 6, 10, 15];
+/** how far knock-downs / light hits push the victim, relative to the numbers in the move table */
+const KB_DOWN = 0.68, KB_LIGHT = 0.8;
 const SHAKE = [0, 0.09, 0.17, 0.3];
 const FOV_KICK = [0, 0.6, 1.4, 2.6];
 
@@ -71,7 +74,7 @@ class Game implements World {
   match: MatchCfg = { ai: 3, difficulty: 'normal', wins: 2, practice: false };
   pcfg: PlayerCfg = { body: 'male', suit: SUITS[0], style: OPEN_STYLES[0] };
   round = 1; timer = 99; tickN = 0; introT = 0; endT = 0; roundWinner?: Fighter;
-  keys = new Set<string>(); camYaw = 0; camPitch = 0.68; camDist = 8.6; dragging = false;
+  keys = new Set<string>(); camYaw = 0; camPitch = 0.6; camDist = 6.4; dragging = false;
   camTarget = new THREE.Vector3(); camShake = 0; camKick = new THREE.Vector3(); fovKick = 0; manual = false; acc = 0; last = performance.now();
 
   settings = { volume: 0.7, shadows: true, sens: 1, showHitboxes: false, guide: true, quality: 'high' as Quality, autoQuality: true };
@@ -98,19 +101,26 @@ class Game implements World {
       const name = String(ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : '');
       if (/swiftshader|basic render|llvmpipe|software|warp/i.test(name)) this.setQuality('low');
     }
-    addEventListener('resize', () => { this.renderer.setSize(innerWidth, innerHeight); this.composer.setSize(innerWidth, innerHeight); this.cam.aspect = innerWidth / innerHeight; this.cam.updateProjectionMatrix(); });
+    const fit = () => this.resize();
+    addEventListener('resize', fit); addEventListener('orientationchange', () => { fit(); setTimeout(fit, 350); }); window.visualViewport?.addEventListener('resize', fit);
+    UI.layout(); initTouch(this);
     // capture phase on window + document so nothing (focused buttons, IME, remote sessions) swallows the keys
     const down = (e: KeyboardEvent) => { const c = codeOf(e); if (!c) return; this.keys.add(c); this.onKey(e, c); };
     addEventListener('keydown', down, true);
     addEventListener('keyup', (e) => { const c = codeOf(e); if (c) this.keys.delete(c); if (c === 'ShiftLeft') this.keys.delete('ShiftRight'); }, true);
     addEventListener('blur', () => this.keys.clear());
-    addEventListener('pointerdown', () => { window.focus(); (document.activeElement as HTMLElement | null)?.blur?.(); }, true);
+    addEventListener('pointerdown', () => { this.audio?.resume(); window.focus(); (document.activeElement as HTMLElement | null)?.blur?.(); }, true);
     const cv = this.renderer.domElement;
     cv.addEventListener('mousedown', () => (this.dragging = true));
     addEventListener('mouseup', () => (this.dragging = false));
     addEventListener('mousemove', (e) => { if (this.dragging && this.screen === 'game') { this.camYaw -= e.movementX * 0.005 * this.settings.sens; this.camPitch = THREE.MathUtils.clamp(this.camPitch + e.movementY * 0.003 * this.settings.sens, 0.45, 1.2); } });
-    addEventListener('wheel', (e) => { if (this.screen === 'game') this.camDist = THREE.MathUtils.clamp(this.camDist + e.deltaY * 0.004, 6, 16); });
+    addEventListener('wheel', (e) => { if (this.screen === 'game') this.camDist = THREE.MathUtils.clamp(this.camDist + e.deltaY * 0.004, 4.5, 14); });
     this.scene.add(this.hitboxGroup);
+  }
+
+  /** the window changed size (or a phone was turned): refit the canvas and the UI */
+  resize() {
+    this.renderer.setSize(innerWidth, innerHeight); this.composer.setSize(innerWidth, innerHeight); this.cam.aspect = innerWidth / innerHeight; this.cam.updateProjectionMatrix(); UI.layout();
   }
 
   async init() {
@@ -331,7 +341,7 @@ class Game implements World {
     // super armor: take the damage, keep attacking
     if (v.hasArmor() && !ko) { v.flashColor.setRGB(1, 0.7, 0.2); UI.popText(this, v, '아머', '#fb923c'); return; }
     v.move = undefined; v.queued = undefined;
-    if (ko) { v.vel.set(dir.x * Math.max(6, m.kb[0]), Math.max(3.5, m.kb[1]) * VS, dir.z * Math.max(6, m.kb[0])); v.launch(m.type !== 'launch'); return; }
+    if (ko) { { const k = Math.max(4.2, m.kb[0] * KB_DOWN); v.vel.set(dir.x * k, Math.max(3.5, m.kb[1]) * VS, dir.z * k); } v.launch(m.type !== 'launch'); return; }
     // early hits of a multi-hit launcher pop the target up a little so the next hit juggles them
     if (!lastHit && m.type === 'launch' && v.grounded && v.state !== 'launched') { v.faceToward(att.pos, 1); v.vel.set(dir.x * 0.15, 2.0 * VS, dir.z * 0.15); v.launch(); v.float = true; return; }
     let type = lastHit ? m.type : 'light';
@@ -340,7 +350,7 @@ class Game implements World {
     if (type === 'light' && v.grounded && v.state !== 'launched') {
       v.setState('hitstun'); v.stunFor = this.comboStun(m, hi); v.faceToward(att.pos, 1);
       v.play(at.y > v.pos.y + 0.85 ? 'Hit_Head' : 'Hit_Chest', { loop: false, speed: 1, fade: 0.03 });
-      v.vel.set(dir.x * m.kb[0], 0, dir.z * m.kb[0]);
+      v.vel.set(dir.x * m.kb[0] * KB_LIGHT, 0, dir.z * m.kb[0] * KB_LIGHT);
     } else if (!v.grounded || v.state === 'launched') {
       // juggle: each extra air hit lifts less (natural gravity wins eventually)
       v.juggle++;
@@ -355,12 +365,12 @@ class Game implements World {
       if (noLift) lift = 0;
       const hk = v.float ? 0.5 : Math.max(1.2, m.kb[0] * 0.5); // floating targets stay in front of the attacker
       v.vel.set(dir.x * hk, Math.max(v.vel.y, lift * VS), dir.z * hk);
-      if (type === 'knockdown') v.vel.set(dir.x * m.kb[0], Math.max(v.vel.y, m.kb[1] * 0.6 * VS * decay * (noLift ? 0 : 1)), dir.z * m.kb[0]);
+      if (type === 'knockdown') v.vel.set(dir.x * m.kb[0] * KB_DOWN, Math.max(v.vel.y, m.kb[1] * 0.6 * VS * decay * (noLift ? 0 : 1)), dir.z * m.kb[0] * KB_DOWN);
       const fl = type !== 'knockdown' && (v.float || type === 'launch');
       v.launch(v.downFace); v.float = fl;
     } else {
       v.faceToward(att.pos, 1); v.juggle = 0;
-      const kh = forced ? Math.max(3, m.kb[0]) : m.kb[0], kv = forced ? Math.max(2.5, m.kb[1]) : m.kb[1];
+      const kh = (forced ? Math.max(3, m.kb[0]) : m.kb[0]) * KB_DOWN, kv = forced ? Math.max(2.5, m.kb[1]) : m.kb[1];
       // launchers pop the target to ~1 m and leave it floating for standing juggles
       const kvv = type === 'launch' ? kv * 0.42 : kv;
       v.vel.set(dir.x * (type === 'launch' ? Math.min(kh, 0.6) : kh), kvv * VS, dir.z * (type === 'launch' ? Math.min(kh, 0.6) : kh)); v.launch(type === 'knockdown' && kv < 3.5); v.float = type === 'launch';
@@ -511,7 +521,7 @@ class Game implements World {
 
   // ------------------------------------------------------------------ loop
   /** chord detection: X / C wait a couple of ticks for a partner key (Z+X, Z+C, X+C) */
-  private tap = { key: '', t: -99 }; private dashing = false; private prevArrows = new Set<string>();
+  private tap = { key: '', t: -99 }; dashing = false; private prevArrows = new Set<string>();
   private pend = { x: -1, c: -1 }; private prevXC = { x: false, c: false };
   readPlayer(): Ctrl {
     const k = this.keys; const c = emptyCtrl();
@@ -522,8 +532,10 @@ class Game implements World {
       if (held && !this.prevArrows.has(a)) { if (this.tap.key === a && this.tickN - this.tap.t <= 15) this.dashing = true; this.tap = { key: a, t: this.tickN }; }
       if (held) this.prevArrows.add(a); else this.prevArrows.delete(a);
     }
-    if (this.prevArrows.size === 0 || this.player?.dashLock) this.dashing = false; // a dash attack ends the run: double-tap again
+    const stick = pad.on && Math.hypot(pad.x, pad.y) > 0.28; // on-screen joystick
+    if ((this.prevArrows.size === 0 && !pad.on) || this.player?.dashLock) this.dashing = false; // a dash attack ends the run: double-tap again
     if (k.has('ArrowUp')) iz += 1; if (k.has('ArrowDown')) iz -= 1; if (k.has('ArrowLeft')) ix += 1; if (k.has('ArrowRight')) ix -= 1;
+    if (stick) { ix -= pad.x; iz -= pad.y; }
     if (k.has('KeyQ')) this.camYaw += 0.04; if (k.has('KeyE')) this.camYaw -= 0.04;
     const fx = -Math.sin(this.camYaw), fz = -Math.cos(this.camYaw);
     c.mx = fx * iz + fz * ix; c.mz = fz * iz - fx * ix;
@@ -626,14 +638,14 @@ class Game implements World {
     if (['title', 'menu', 'setup', 'moves', 'settings', 'credits'].includes(this.screen)) {
       const t = performance.now() * 0.00008;
       const mid = this.fighters.reduce((v, f) => v.add(f.pos), new THREE.Vector3()).multiplyScalar(1 / Math.max(1, this.fighters.length));
-      c.position.set(mid.x + Math.sin(t) * 6, 3.6, mid.z + Math.cos(t) * 6); c.lookAt(mid.x, 0.9, mid.z); return;
+      c.position.set(mid.x + Math.sin(t) * 5, 2.8, mid.z + Math.cos(t) * 5); c.lookAt(mid.x, 0.7, mid.z); return;
     }
     const p = this.player && this.player.state !== 'out' ? this.player : this.fighters.find((f) => f.alive) || this.fighters[0];
     if (!p) return;
     // quarter view: frame the player together with the opponents close to them
     const focus = p.pos.clone(); let n = 1;
     for (const f of this.fighters) if (f !== p && f.state !== 'out' && f.pos.distanceTo(p.pos) < 6) { focus.addScaledVector(f.pos, 0.5); n += 0.5; }
-    focus.multiplyScalar(1 / n); const gy = Math.max(-1.1, MAP.cur.floor(p.pos.x, p.pos.z)); focus.y = gy + Math.max(0, p.pos.y - gy) * 0.4 + 0.9;
+    focus.multiplyScalar(1 / n); const gy = Math.max(-1.1, MAP.cur.floor(p.pos.x, p.pos.z)); focus.y = gy + Math.max(0, p.pos.y - gy) * 0.4 + 0.65;
     this.camTarget.lerp(focus, 1 - Math.pow(0.0005, dt));
     const off = new THREE.Vector3(Math.sin(this.camYaw) * Math.cos(this.camPitch), Math.sin(this.camPitch), Math.cos(this.camYaw) * Math.cos(this.camPitch)).multiplyScalar(this.camDist);
     c.position.copy(this.camTarget).add(off).add(this.camKick);
@@ -681,6 +693,7 @@ class Game implements World {
     this.render(dt);
   };
   render(dt = DT) {
+    syncTouch(this);
     this.updateCamera(dt);
     this.drawHitboxes();
     this.stage?.userData.tick?.(performance.now() / 1000);
@@ -697,6 +710,7 @@ function analyzeMoves(): Record<string, number> {
     const hits: HitPoint[] = meta.hits.map((h) => ({ limb: h.limb, t: h.t, from: Math.max(0, h.t - 0.035), to: h.t + 0.07 }));
     // rush techniques are active for the whole dash, so a fast lunge cannot pass through a target
     if ((m.lunge ?? 0) >= 6 && hits.length === 1) hits[0].from = Math.min(hits[0].from, 0.06);
+    if (m.air && hits.length === 1) hits[0].to = hits[0].t + 0.28; // a diving strike stays out on the way down
     m.hits = hits; m.limb = hits[0]?.limb; m.peak = hits[hits.length - 1]?.t ?? 0.2; m.activeFrom = hits[0]?.from; m.activeTo = hits[hits.length - 1]?.to;
   }
   const loco: Record<string, number> = {};

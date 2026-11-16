@@ -15,6 +15,21 @@ const pips = (on: number, total: number) => Array.from({ length: total }, (_, i)
 let layer: HTMLElement | null = null;
 function setLayer(el: HTMLElement) { layer?.remove(); layer = el; root().appendChild(el); }
 
+/** The UI is drawn for a 1280x720 (or larger) screen. On anything smaller - phones above all - the whole layer is
+ *  scaled down as one piece and kept inside the safe area (notch, home indicator), so every screen keeps its layout. */
+export const LAY = { s: 1, left: 0, top: 0 };
+let probe: HTMLElement | undefined;
+export function layout() {
+  if (!probe) { probe = document.createElement('div'); probe.style.cssText = 'position:fixed;left:0;top:0;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)'; document.body.appendChild(probe); }
+  const cs = getComputedStyle(probe); const n = (v: string) => parseFloat(v) || 0;
+  const l = n(cs.paddingLeft), r = n(cs.paddingRight), t = n(cs.paddingTop), b = n(cs.paddingBottom);
+  const w = Math.max(1, innerWidth - l - r), hh = Math.max(1, innerHeight - t - b);
+  const s = Math.min(1, w / 1280, hh / 720);
+  LAY.s = s; LAY.left = l; LAY.top = t;
+  const e = root().style; e.left = l + 'px'; e.top = t + 'px'; e.right = e.bottom = 'auto'; e.width = w / s + 'px'; e.height = hh / s + 'px'; e.transformOrigin = '0 0'; e.transform = s < 1 ? `scale(${s})` : '';
+  const d = document.documentElement.style; d.setProperty('--vw', w / s / 100 + 'px'); d.setProperty('--vh', hh / s / 100 + 'px'); d.setProperty('--u', Math.min(7, Math.max(3.3, innerHeight / 100)) + 'px'); d.setProperty('--s', String(s));
+}
+
 export function showLoading() {
   setLayer(h(`<div class="screen loading">
     <div class="wordmark sm">SPIRIT ARENA</div>
@@ -43,7 +58,7 @@ export function screens(g: Game) {
           <div class="rule"></div>
           <div class="sub">스피릿 아레나</div>
         </div>
-        <div class="press">PRESS ANY KEY</div>
+        <div class="press"><span class="k">PRESS ANY KEY</span><span class="t">TAP TO START</span></div>
         <div class="ver">v0.5 · MOONLIT COURT</div>
       </div>`));
       layer!.onclick = () => g.go('menu');
@@ -202,6 +217,7 @@ export function screens(g: Game) {
         <div class="field"><label>히트박스</label><div class="seg" id="hb"><span class="${s.showHitboxes ? 'on' : ''}">표시</span><span class="${s.showHitboxes ? '' : 'on'}">숨김</span></div></div>
         <div class="field top"><label>조작</label><dl class="keymap">
           <dt><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd></dt><dd>이동 (원격 접속 등으로 방향키가 안 되면 <kbd>I</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> 또는 숫자패드 8·4·2·6)</dd><dt><kbd>Space</kbd></dt><dd>점프 (공중에서 한 번 더: 2단 점프)</dd><dt><kbd>→</kbd><kbd>→</kbd></dt><dd>대시 (같은 방향키 두 번, 누른 채 유지)</dd>
+          <dt>터치</dt><dd>왼쪽 조이스틱 이동 (빠르게 두 번 밀면 대시) · 오른쪽 버튼 공격 · 빈 곳을 끌어 시점 회전</dd>
           <dt><kbd>Z</kbd></dt><dd>가드</dd><dt><kbd>X</kbd></dt><dd>손 공격</dd><dt><kbd>C</kbd></dt><dd>발 공격 · 다운 중 기상 공격</dd>
           <dt><kbd>Z</kbd><kbd>X</kbd></dt><dd>잡기</dd><dt><kbd>Z</kbd><kbd>C</kbd></dt><dd>반격기</dd><dt><kbd>X</kbd><kbd>C</kbd></dt><dd>회피기 (라운드당 2회)</dd>
           <dt><kbd>V</kbd></dt><dd>난무 — 돌진 후 연타로 10콤보 (판당 1회)</dd><dt>대시 + <kbd>X</kbd> / <kbd>C</kbd></dt><dd>아머 어택 / 날라차기 (즉시 다운)</dd><dt><kbd>O</kbd></dt><dd>변신</dd><dt><kbd>Q</kbd><kbd>E</kbd></dt><dd>카메라 회전</dd>
@@ -236,7 +252,7 @@ function statBars(style: string) {
 const tags = new Map<Fighter, HTMLElement>();
 export function clearTags() { for (const t of tags.values()) t.remove(); tags.clear(); }
 const v3 = new THREE.Vector3();
-function project(g: Game, p: THREE.Vector3) { v3.copy(p).project(g.cam); return { x: (v3.x + 1) / 2 * innerWidth, y: (1 - v3.y) / 2 * innerHeight, vis: v3.z < 1 }; }
+function project(g: Game, p: THREE.Vector3) { v3.copy(p).project(g.cam); return { x: ((v3.x + 1) / 2 * innerWidth - LAY.left) / LAY.s, y: ((1 - v3.y) / 2 * innerHeight - LAY.top) / LAY.s, vis: v3.z < 1 }; }
 
 export function updateHud(g: Game) {
   const inGame = ['game', 'pause', 'round', 'result'].includes(g.screen);
