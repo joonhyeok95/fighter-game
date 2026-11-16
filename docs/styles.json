@@ -1,0 +1,10436 @@
+{
+ "kickboxing": {
+  "name": "킥복싱",
+  "concept": "펀치와 킥을 자유롭게 섞는 균형형",
+  "desc": "주먹 연타와 로우·미들·하이킥이 서로 이어진다. 니킥으로 띄우고 하이킥으로 마무리.",
+  "traits": [
+   "주먹 ↔ 발 자유 연계",
+   "특수키: 원투쓰리 3연타",
+   "대시 특수키: 플라잉 니킥 (띄우기)"
+  ],
+  "stats": {
+   "속도": 4,
+   "리치": 3,
+   "콤보": 5,
+   "파워": 3,
+   "잡기": 2
+  },
+  "moves": [
+   {
+    "id": "kb_jab",
+    "input": "J",
+    "name": "잽",
+    "kind": "손",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 38,
+    "total_dmg": 38,
+    "type": "light",
+    "startup": 7,
+    "total": 29,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_cross",
+    "input": "J J",
+    "name": "크로스",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 46,
+    "total_dmg": 46,
+    "type": "light",
+    "startup": 10,
+    "total": 38,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_hook",
+    "input": "J J J",
+    "name": "훅",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 72,
+    "total_dmg": 72,
+    "type": "knockdown",
+    "startup": 16,
+    "total": 27,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_mid",
+    "input": "J J K",
+    "name": "미들킥",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 55,
+    "total_dmg": 55,
+    "type": "light",
+    "startup": 14,
+    "total": 39,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_high",
+    "input": "J J K K",
+    "name": "하이킥",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 85,
+    "total_dmg": 85,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 48,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_knee",
+    "input": "J J K J",
+    "name": "니킥 (띄우기)",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "launch",
+    "startup": 21,
+    "total": 38,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_low",
+    "input": "J K",
+    "name": "로우킥",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 45,
+    "total_dmg": 45,
+    "type": "light",
+    "startup": 25,
+    "total": 33,
+    "armor": false,
+    "guardBreak": false,
+    "low": true,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_onetwo",
+    "input": "H",
+    "name": "원투쓰리",
+    "kind": "손",
+    "limbs": [
+     "hand_r",
+     "hand_l"
+    ],
+    "hits": 3,
+    "dmg": 30,
+    "total_dmg": 90,
+    "type": "light",
+    "startup": 12,
+    "total": 64,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_superman",
+    "input": "대시 J",
+    "name": "슈퍼맨 펀치",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "light",
+    "startup": 12,
+    "total": 46,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 6.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "kb_flyknee",
+    "input": "대시 H",
+    "name": "플라잉 니킥",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 80,
+    "total_dmg": 80,
+    "type": "launch",
+    "startup": 27,
+    "total": 55,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 6,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumpkick",
+    "input": "점프 중 C",
+    "name": "점프킥",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumppunch",
+    "input": "점프 중 X",
+    "name": "점프 지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "light",
+    "startup": 11,
+    "total": 43,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   }
+  ],
+  "routes": [
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "잽"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 38,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "크로스"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 80,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "크로스",
+     "훅"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 140,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.27,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "크로스",
+     "미들킥"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 126,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "크로스",
+     "미들킥",
+     "하이킥"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 191,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "크로스",
+     "미들킥",
+     "니킥 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 172,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "로우킥"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 79,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "로우킥",
+     "하이킥"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 150,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "로우킥",
+     "니킥 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 129,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "로우킥"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 45,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "로우킥",
+     "하이킥"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 123,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "로우킥",
+     "니킥 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 100,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "원투쓰리"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 83,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "S",
+     "J"
+    ],
+    "names": [
+     "원투쓰리",
+     "훅"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 138,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.27,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S",
+     "K"
+    ],
+    "names": [
+     "원투쓰리",
+     "하이킥"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 148,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "슈퍼맨 펀치"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 60,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "K"
+    ],
+    "names": [
+     "슈퍼맨 펀치",
+     "하이킥"
+    ],
+    "dash": true,
+    "hits": 2,
+    "dmg": 138,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "미들킥"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 55,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "미들킥",
+     "하이킥"
+    ],
+    "dash": true,
+    "hits": 2,
+    "dmg": 133,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "미들킥",
+     "니킥 (띄우기)"
+    ],
+    "dash": true,
+    "hits": 2,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "플라잉 니킥"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 80,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운"
+   }
+  ],
+  "follow": [
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "크로스",
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 241,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.88,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 69
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "크로스",
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 8,
+    "dmg": 273,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.88,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 101
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "크로스",
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 255,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 83
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "크로스",
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 263,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 91
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "크로스",
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 213,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 41
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 129,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 207,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.9,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 78
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 129,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 244,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.9,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 115
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 129,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 222,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.96,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 93
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 129,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 232,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.96,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 103
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "J"
+     ],
+     "names": [
+      "잽",
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 129,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 175,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 100,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 215,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.11,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 115
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 100,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 252,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.11,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 152
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 100,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 204,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 104
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 100,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 216,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.96,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 116
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "로우킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 100,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 150,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 225,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.09,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 115
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 262,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.09,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 152
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 214,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.04,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 104
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 226,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 116
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "미들킥",
+      "니킥 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "플라잉 니킥"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 80,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 207,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.11,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 127
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "플라잉 니킥"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 80,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 250,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.11,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 170
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "플라잉 니킥"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 80,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 196,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 116
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "플라잉 니킥"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 80,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 209,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.97,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 129
+   }
+  ]
+ },
+ "taekwondo": {
+  "name": "태권도",
+  "concept": "묵직한 한 방의 발차기",
+  "desc": "한 방 한 방이 무거운 발차기. 앞차기 → 돌려차기 → 뒤후려차기, 나래차기로 띄운 뒤 공중 추격.",
+  "traits": [
+   "발차기 리치 +15~20cm",
+   "묵직한 타격 (경직·흔들림 ×1.35)",
+   "특수키: 540 회전차기",
+   "대시 + 발: 이단 옆차기"
+  ],
+  "stats": {
+   "속도": 3,
+   "리치": 5,
+   "콤보": 3,
+   "파워": 5,
+   "잡기": 1
+  },
+  "moves": [
+   {
+    "id": "tk_punch",
+    "input": "J",
+    "name": "정권지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 45,
+    "total_dmg": 45,
+    "type": "light",
+    "startup": 13,
+    "total": 50,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 1.4,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "tk_punch2",
+    "input": "J J",
+    "name": "두번지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 40,
+    "total_dmg": 40,
+    "type": "light",
+    "startup": 7,
+    "total": 24,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "tk_side",
+    "input": "J J K",
+    "name": "옆차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 85,
+    "total_dmg": 85,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 47,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0.2,
+    "charge": false
+   },
+   {
+    "id": "tk_front",
+    "input": "K",
+    "name": "앞차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 55,
+    "total_dmg": 55,
+    "type": "light",
+    "startup": 19,
+    "total": 39,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0.15,
+    "charge": false
+   },
+   {
+    "id": "tk_round",
+    "input": "K K",
+    "name": "돌려차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 70,
+    "total_dmg": 70,
+    "type": "light",
+    "startup": 19,
+    "total": 48,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0.15,
+    "charge": false
+   },
+   {
+    "id": "tk_back",
+    "input": "K K K",
+    "name": "뒤후려차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 100,
+    "total_dmg": 100,
+    "type": "knockdown",
+    "startup": 23,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0.15,
+    "charge": false
+   },
+   {
+    "id": "tk_hook",
+    "input": "K K J",
+    "name": "뒤돌려차기",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 105,
+    "total_dmg": 105,
+    "type": "knockdown",
+    "startup": 25,
+    "total": 53,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0.15,
+    "charge": false
+   },
+   {
+    "id": "tk_double",
+    "input": "K J",
+    "name": "나래차기 (띄우기)",
+    "kind": "발",
+    "limbs": [
+     "foot_r",
+     "foot_l"
+    ],
+    "hits": 2,
+    "dmg": 40,
+    "total_dmg": 80,
+    "type": "launch",
+    "startup": 20,
+    "total": 48,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 2.2,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "tk_tornado",
+    "input": "H",
+    "name": "540 회전차기",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 110,
+    "total_dmg": 110,
+    "type": "knockdown",
+    "startup": 25,
+    "total": 53,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0.15,
+    "charge": false
+   },
+   {
+    "id": "rush",
+    "input": "대시 J",
+    "name": "돌진 연타",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "light",
+    "startup": 17,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 5.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "tk_jumpside",
+    "input": "대시 K",
+    "name": "이단 옆차기",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 90,
+    "total_dmg": 90,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 42,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 7,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumpkick",
+    "input": "점프 중 C",
+    "name": "점프킥",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumppunch",
+    "input": "점프 중 X",
+    "name": "점프 지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "light",
+    "startup": 11,
+    "total": 43,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   }
+  ],
+  "routes": [
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "정권지르기"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 45,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J"
+    ],
+    "names": [
+     "정권지르기",
+     "두번지르기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 82,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "정권지르기",
+     "두번지르기",
+     "옆차기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 153,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.37,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "앞차기"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 55,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "앞차기",
+     "돌려차기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 119,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "K"
+    ],
+    "names": [
+     "앞차기",
+     "돌려차기",
+     "뒤후려차기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 203,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.49,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "J"
+    ],
+    "names": [
+     "앞차기",
+     "돌려차기",
+     "뒤돌려차기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 207,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.55,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "앞차기",
+     "나래차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 126,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.93,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "540 회전차기"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.77,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "돌진 연타"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 50,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "이단 옆차기"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 90,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.59,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "540 회전차기"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.77,
+    "end": "다운"
+   }
+  ],
+  "follow": [
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "앞차기",
+      "나래차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 126,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.93,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 276,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.1,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 150
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "앞차기",
+      "나래차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 126,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.93,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 239,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.1,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 113
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "앞차기",
+      "나래차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 126,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.93,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 238,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.26,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 112
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "앞차기",
+      "나래차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 126,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.93,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 187,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.26,
+    "end": "띄우기→다운",
+    "extraHits": 2,
+    "extraDmg": 61
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "앞차기",
+      "나래차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 126,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.93,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 172,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.94,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "앞차기",
+      "나래차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 126,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.93,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 183,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.12,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 57
+   }
+  ]
+ },
+ "jujutsu": {
+  "name": "유술",
+  "concept": "잡기와 던지기의 달인",
+  "desc": "잡기 범위가 넓고, 타격이 맞은 상대를 바로 잡을 수 있다. 반격 성공 시 던지기로 연결.",
+  "traits": [
+   "잡기 범위 +40%",
+   "콤보 중 Z+X로 잡기 캔슬",
+   "반격 → 관절 던지기",
+   "특수키: 업어치기 (가드불가)",
+   "대시 특수키: 태클 (슈퍼아머)"
+  ],
+  "stats": {
+   "속도": 3,
+   "리치": 2,
+   "콤보": 3,
+   "파워": 4,
+   "잡기": 5
+  },
+  "moves": [
+   {
+    "id": "ju_palm",
+    "input": "J",
+    "name": "장타",
+    "kind": "손",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 35,
+    "total_dmg": 35,
+    "type": "light",
+    "startup": 8,
+    "total": 34,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ju_elbow",
+    "input": "J J",
+    "name": "팔꿈치 치기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 45,
+    "total_dmg": 45,
+    "type": "light",
+    "startup": 8,
+    "total": 25,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ju_sweep",
+    "input": "J J K",
+    "name": "다리후리기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 33,
+    "total": 44,
+    "armor": false,
+    "guardBreak": false,
+    "low": true,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ju_low",
+    "input": "K",
+    "name": "정강이 차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 40,
+    "total_dmg": 40,
+    "type": "light",
+    "startup": 26,
+    "total": 34,
+    "armor": false,
+    "guardBreak": false,
+    "low": true,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ju_hipthrow",
+    "input": "H",
+    "name": "업어치기 (가드불가 잡기)",
+    "kind": "특수",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 130,
+    "total_dmg": 130,
+    "type": "knockdown",
+    "startup": 6,
+    "total": 47,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "cmdgrab",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "rush",
+    "input": "대시 J",
+    "name": "돌진 연타",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "light",
+    "startup": 17,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 5.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ju_tackle",
+    "input": "대시 H",
+    "name": "태클 (슈퍼아머)",
+    "kind": "손",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 70,
+    "total_dmg": 70,
+    "type": "knockdown",
+    "startup": 11,
+    "total": 55,
+    "armor": true,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 7,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumpkick",
+    "input": "점프 중 C",
+    "name": "점프킥",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumppunch",
+    "input": "점프 중 X",
+    "name": "점프 지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "light",
+    "startup": 11,
+    "total": 43,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   }
+  ],
+  "routes": [
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "장타"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 35,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J"
+    ],
+    "names": [
+     "장타",
+     "팔꿈치 치기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 76,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "장타",
+     "팔꿈치 치기",
+     "다리후리기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 126,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.22,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K"
+    ],
+    "names": [
+     "장타",
+     "다리후리기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 90,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.22,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "정강이 차기"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 40,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "정강이 차기",
+     "다리후리기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 95,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.22,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "정강이 차기",
+     "팔꿈치 치기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 81,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "K"
+    ],
+    "names": [
+     "정강이 차기",
+     "팔꿈치 치기",
+     "다리후리기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 131,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.22,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "업어치기 (가드불가 잡기)"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 130,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.36,
+    "end": "던지기"
+   },
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "돌진 연타"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 50,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "다리후리기"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 60,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.22,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "태클 (슈퍼아머)"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 70,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.29,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "grab"
+    ],
+    "names": [
+     "장타",
+     "잡기 캔슬"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 125,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.95,
+    "end": "던지기"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "grab"
+    ],
+    "names": [
+     "장타",
+     "팔꿈치 치기",
+     "잡기 캔슬"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 166,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.95,
+    "end": "던지기"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "grab"
+    ],
+    "names": [
+     "장타",
+     "다리후리기",
+     "잡기 캔슬"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 90,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.22,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "grab"
+    ],
+    "names": [
+     "정강이 차기",
+     "잡기 캔슬"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 40,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "grab"
+    ],
+    "names": [
+     "정강이 차기",
+     "다리후리기",
+     "잡기 캔슬"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 95,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.22,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "grab"
+    ],
+    "names": [
+     "정강이 차기",
+     "팔꿈치 치기",
+     "잡기 캔슬"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 171,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.95,
+    "end": "던지기"
+   }
+  ],
+  "follow": [
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "grab"
+     ],
+     "names": [
+      "장타",
+      "잡기 캔슬"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 125,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.95,
+     "end": "던지기"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 175,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 2.2,
+    "end": "던지기",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "grab"
+     ],
+     "names": [
+      "장타",
+      "잡기 캔슬"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 125,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.95,
+     "end": "던지기"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 188,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 2.21,
+    "end": "던지기",
+    "extraHits": 1,
+    "extraDmg": 63
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "grab"
+     ],
+     "names": [
+      "장타",
+      "팔꿈치 치기",
+      "잡기 캔슬"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 166,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.95,
+     "end": "던지기"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 212,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 2.2,
+    "end": "던지기",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "grab"
+     ],
+     "names": [
+      "장타",
+      "팔꿈치 치기",
+      "잡기 캔슬"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 166,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.95,
+     "end": "던지기"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 223,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 2.21,
+    "end": "던지기",
+    "extraHits": 1,
+    "extraDmg": 57
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "grab"
+     ],
+     "names": [
+      "정강이 차기",
+      "팔꿈치 치기",
+      "잡기 캔슬"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 171,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.95,
+     "end": "던지기"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 217,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 2.2,
+    "end": "던지기",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "grab"
+     ],
+     "names": [
+      "정강이 차기",
+      "팔꿈치 치기",
+      "잡기 캔슬"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 171,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.95,
+     "end": "던지기"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 228,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 2.21,
+    "end": "던지기",
+    "extraHits": 1,
+    "extraDmg": 57
+   }
+  ]
+ },
+ "ninjutsu": {
+  "name": "인술",
+  "concept": "가장 빠른 연타와 이동기",
+  "desc": "수도 3연타에서 선풍각, 공중제비 차기로 띄운다. 순보로 등 뒤를 잡고 더 높은 2단 점프를 쓴다.",
+  "traits": [
+   "공격 속도 최상",
+   "더 높은 2단 점프",
+   "특수키: 순보 (등 뒤로 순간이동)",
+   "대시 특수키: 슬라이딩 (하단 다운)"
+  ],
+  "stats": {
+   "속도": 5,
+   "리치": 2,
+   "콤보": 5,
+   "파워": 2,
+   "잡기": 2
+  },
+  "moves": [
+   {
+    "id": "nj_a",
+    "input": "J",
+    "name": "수도 1",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 30,
+    "total_dmg": 30,
+    "type": "light",
+    "startup": 6,
+    "total": 18,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "nj_b",
+    "input": "J J",
+    "name": "수도 2",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 32,
+    "total_dmg": 32,
+    "type": "light",
+    "startup": 6,
+    "total": 20,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "nj_c",
+    "input": "J J J",
+    "name": "수도 3",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 36,
+    "total_dmg": 36,
+    "type": "light",
+    "startup": 13,
+    "total": 23,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "nj_spin",
+    "input": "J J J K",
+    "name": "선풍각",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 23,
+    "total": 49,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "nj_flip",
+    "input": "J J K",
+    "name": "공중제비 차기 (띄우기)",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 55,
+    "total_dmg": 55,
+    "type": "launch",
+    "startup": 26,
+    "total": 53,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 2.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "nj_low",
+    "input": "K",
+    "name": "하단 차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 36,
+    "total_dmg": 36,
+    "type": "light",
+    "startup": 23,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": true,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "nj_blink",
+    "input": "H",
+    "name": "순보 (등 뒤로 순간이동)",
+    "kind": "특수",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 0,
+    "total_dmg": 0,
+    "type": "light",
+    "startup": 7,
+    "total": 14,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 18,
+    "lunge": 0,
+    "special": "teleport",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "rush",
+    "input": "대시 J",
+    "name": "돌진 연타",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "light",
+    "startup": 17,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 5.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "nj_slide",
+    "input": "대시 H",
+    "name": "슬라이딩",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "knockdown",
+    "startup": 13,
+    "total": 42,
+    "armor": false,
+    "guardBreak": false,
+    "low": true,
+    "invuln": 0,
+    "lunge": 8.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumpkick",
+    "input": "점프 중 C",
+    "name": "점프킥",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumppunch",
+    "input": "점프 중 X",
+    "name": "점프 지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "light",
+    "startup": 11,
+    "total": 43,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   }
+  ],
+  "routes": [
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "수도 1"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 30,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J"
+    ],
+    "names": [
+     "수도 1",
+     "수도 2"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 59,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "J"
+    ],
+    "names": [
+     "수도 1",
+     "수도 2",
+     "수도 3"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 89,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "수도 1",
+     "수도 2",
+     "수도 3",
+     "선풍각"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 135,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.49,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "수도 1",
+     "수도 2",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 105,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K"
+    ],
+    "names": [
+     "수도 1",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 81,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "하단 차기"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 36,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "하단 차기",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 87,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "J"
+    ],
+    "names": [
+     "하단 차기",
+     "공중제비 차기 (띄우기)",
+     "수도 1"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 112,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "하단 차기",
+     "공중제비 차기 (띄우기)",
+     "수도 1",
+     "수도 2"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 136,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.91,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "하단 차기",
+     "수도 1"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 64,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "하단 차기",
+     "수도 1",
+     "수도 2"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 91,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J",
+     "J"
+    ],
+    "names": [
+     "하단 차기",
+     "수도 1",
+     "수도 2",
+     "수도 3"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 118,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "하단 차기",
+     "수도 1",
+     "수도 2",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 133,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "K"
+    ],
+    "names": [
+     "하단 차기",
+     "수도 1",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)"
+    ],
+    "dash": false,
+    "hits": 0,
+    "dmg": 0,
+    "poison": 0,
+    "trueCombo": false,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "S",
+     "J"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "수도 1"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 30,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "S",
+     "J",
+     "J"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "수도 1",
+     "수도 2"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 59,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "S",
+     "J",
+     "J",
+     "J"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "수도 1",
+     "수도 2",
+     "수도 3"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 89,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "S",
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "수도 1",
+     "수도 2",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 105,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S",
+     "J",
+     "K"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "수도 1",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 81,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S",
+     "K"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 55,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S",
+     "K",
+     "J"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "공중제비 차기 (띄우기)",
+     "수도 1"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 83,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S",
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "순보 (등 뒤로 순간이동)",
+     "공중제비 차기 (띄우기)",
+     "수도 1",
+     "수도 2"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "돌진 연타"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 50,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "공중제비 차기 (띄우기)"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 55,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "공중제비 차기 (띄우기)",
+     "수도 1"
+    ],
+    "dash": true,
+    "hits": 2,
+    "dmg": 83,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "공중제비 차기 (띄우기)",
+     "수도 1",
+     "수도 2"
+    ],
+    "dash": true,
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.91,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J",
+     "J"
+    ],
+    "names": [
+     "공중제비 차기 (띄우기)",
+     "수도 1",
+     "수도 2",
+     "수도 3"
+    ],
+    "dash": true,
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "슬라이딩"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 50,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.49,
+    "end": "다운"
+   }
+  ],
+  "follow": [
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 207,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 102
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 8,
+    "dmg": 199,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 94
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 196,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 91
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 183,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 78
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 172,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 67
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 151,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 162,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 57
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 128,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 23
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 151,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 197,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.13,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 116
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 187,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.13,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 106
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 184,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 103
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 167,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 86
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 154,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 73
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 131,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 144,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 63
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 106,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 25
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K"
+     ],
+     "names": [
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 131,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 203,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.13,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 116
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 193,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.13,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 106
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 190,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 103
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 173,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 86
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 73
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 150,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 63
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 112,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 25
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 87,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 112,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 136,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 112,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 136,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 112,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 136,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 112,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 196,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 84
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 112,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 2,
+    "extraDmg": 48
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 112,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 136,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.91,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 112,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 154,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.15,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 42
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 136,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 136,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 136,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 136,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 136,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 136,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 160,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 24
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "하단 차기",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 136,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 173,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.22,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 37
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 201,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.04,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 68
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 9,
+    "dmg": 215,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.04,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 82
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 212,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 79
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 201,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 68
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 191,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 58
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 174,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 41
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 184,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 51
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 153,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 20
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 133,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 174,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 41
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 212,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 102
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 8,
+    "dmg": 204,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 94
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 201,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 91
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 188,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 78
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 177,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 67
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 156,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 167,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 57
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 133,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 23
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "K"
+     ],
+     "names": [
+      "하단 차기",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 156,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 207,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 102
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 8,
+    "dmg": 199,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 94
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 196,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 91
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 183,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 78
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 172,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 67
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 151,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 162,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 57
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 128,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 23
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "수도 2",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 105,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 151,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 197,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.13,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 116
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 187,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.13,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 106
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 184,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 103
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 167,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 86
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 154,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 73
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 131,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 144,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 63
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 106,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 25
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "J",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "수도 1",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 81,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 131,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 186,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.14,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 131
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 175,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.17,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 120
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 169,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.2,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 114
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 152,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.25,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 97
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.1,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 82
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 2,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.78,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 55
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 2,
+    "dmg": 124,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.94,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 69
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 2,
+    "dmg": 83,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 28
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 2,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.78,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 55
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.93,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.93,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.93,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 178,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.09,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 95
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.09,
+    "end": "띄우기→다운",
+    "extraHits": 2,
+    "extraDmg": 54
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 129,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.11,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.92,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.92,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.92,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.92,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.92,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.92,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "순보 (등 뒤로 순간이동)",
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.92,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 152,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 42
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 186,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.13,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 131
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 175,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.16,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 120
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 169,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.18,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 114
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 152,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.23,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 97
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 82
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 2,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 55
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 2,
+    "dmg": 124,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.95,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 69
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 2,
+    "dmg": 83,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 28
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 55,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K",
+     "jump",
+     "K"
+    ],
+    "hits": 2,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.8,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 55
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.92,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 178,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 95
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.08,
+    "end": "띄우기→다운",
+    "extraHits": 2,
+    "extraDmg": 54
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 3,
+    "dmg": 110,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.91,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1"
+     ],
+     "dash": true,
+     "hits": 2,
+     "dmg": 83,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.75,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 129,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.15,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": true,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": true,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": true,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": true,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": true,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.06,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": true,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "J"
+    ],
+    "hits": 4,
+    "dmg": 137,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 27
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2"
+     ],
+     "dash": true,
+     "hits": 3,
+     "dmg": 110,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.91,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 152,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.22,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 42
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2",
+      "수도 3"
+     ],
+     "dash": true,
+     "hits": 4,
+     "dmg": 137,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.07,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 205,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.1,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 68
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2",
+      "수도 3"
+     ],
+     "dash": true,
+     "hits": 4,
+     "dmg": 137,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.07,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 9,
+    "dmg": 219,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.1,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 82
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2",
+      "수도 3"
+     ],
+     "dash": true,
+     "hits": 4,
+     "dmg": 137,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.07,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 8,
+    "dmg": 216,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.12,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 79
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2",
+      "수도 3"
+     ],
+     "dash": true,
+     "hits": 4,
+     "dmg": 137,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.07,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 205,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.17,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 68
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2",
+      "수도 3"
+     ],
+     "dash": true,
+     "hits": 4,
+     "dmg": 137,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.07,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 195,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.17,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 58
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "J",
+      "J",
+      "J"
+     ],
+     "names": [
+      "공중제비 차기 (띄우기)",
+      "수도 1",
+      "수도 2",
+      "수도 3"
+     ],
+     "dash": true,
+     "hits": 4,
+     "dmg": 137,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1.07,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 178,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.07,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 41
+   }
+  ]
+ },
+ "smoke": {
+  "name": "연막류 인술",
+  "concept": "연막으로 교란하고 독으로 깎는다",
+  "desc": "모든 타격에 독이 묻어 지속 피해를 준다. 연막 속의 적은 혼란에 빠지고 시전자는 은신한다.",
+  "traits": [
+   "타격 시 독 (2초간 지속 피해)",
+   "특수키: 연막 (적 혼란 + 은신)",
+   "대시 특수키: 그림자 관통 (무적 돌진·띄우기)"
+  ],
+  "stats": {
+   "속도": 4,
+   "리치": 3,
+   "콤보": 4,
+   "파워": 2,
+   "잡기": 2
+  },
+  "moves": [
+   {
+    "id": "sm_a",
+    "input": "J",
+    "name": "암수 1",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 30,
+    "total_dmg": 30,
+    "type": "light",
+    "startup": 7,
+    "total": 21,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "sm_b",
+    "input": "J J",
+    "name": "암수 2",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 32,
+    "total_dmg": 32,
+    "type": "light",
+    "startup": 7,
+    "total": 23,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "sm_round",
+    "input": "J J K",
+    "name": "그림자 돌려차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 70,
+    "total_dmg": 70,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 47,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "sm_front",
+    "input": "J K",
+    "name": "안개 앞차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 48,
+    "total_dmg": 48,
+    "type": "light",
+    "startup": 18,
+    "total": 38,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "sm_back",
+    "input": "J K K",
+    "name": "뒤돌려차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 85,
+    "total_dmg": 85,
+    "type": "knockdown",
+    "startup": 22,
+    "total": 38,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "sm_smoke",
+    "input": "H",
+    "name": "연막 (혼란 + 은신)",
+    "kind": "특수",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 0,
+    "total_dmg": 0,
+    "type": "light",
+    "startup": 11,
+    "total": 21,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "smoke",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "rush",
+    "input": "대시 J",
+    "name": "돌진 연타",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "light",
+    "startup": 17,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 5.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "sm_shadow",
+    "input": "대시 H",
+    "name": "그림자 관통 (무적 돌진)",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 70,
+    "total_dmg": 70,
+    "type": "launch",
+    "startup": 17,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 24,
+    "lunge": 11,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumpkick",
+    "input": "점프 중 C",
+    "name": "점프킥",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumppunch",
+    "input": "점프 중 X",
+    "name": "점프 지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "light",
+    "startup": 11,
+    "total": 43,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   }
+  ],
+  "routes": [
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "암수 1"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 30,
+    "poison": 48,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J"
+    ],
+    "names": [
+     "암수 1",
+     "암수 2"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 59,
+    "poison": 52,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "암수 1",
+     "암수 2",
+     "그림자 돌려차기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 118,
+    "poison": 44,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K"
+    ],
+    "names": [
+     "암수 1",
+     "안개 앞차기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 74,
+    "poison": 52,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "K"
+    ],
+    "names": [
+     "암수 1",
+     "안개 앞차기",
+     "뒤돌려차기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 145,
+    "poison": 48,
+    "trueCombo": true,
+    "maxY": 0.49,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "안개 앞차기"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 48,
+    "poison": 48,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "안개 앞차기",
+     "뒤돌려차기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 126,
+    "poison": 44,
+    "trueCombo": true,
+    "maxY": 0.49,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "안개 앞차기",
+     "암수 1"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 76,
+    "poison": 48,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "안개 앞차기",
+     "암수 1",
+     "암수 2"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 103,
+    "poison": 40,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "안개 앞차기",
+     "암수 1",
+     "암수 2",
+     "그림자 돌려차기"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 156,
+    "poison": 44,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "연막 (혼란 + 은신)"
+    ],
+    "dash": false,
+    "hits": 0,
+    "dmg": 0,
+    "poison": 0,
+    "trueCombo": false,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "돌진 연타"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 50,
+    "poison": 48,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "뒤돌려차기"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 85,
+    "poison": 44,
+    "trueCombo": true,
+    "maxY": 0.49,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "그림자 관통 (무적 돌진)"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 70,
+    "poison": 48,
+    "trueCombo": true,
+    "maxY": 0.62,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "S",
+     "K"
+    ],
+    "names": [
+     "그림자 관통 (무적 돌진)",
+     "뒤돌려차기"
+    ],
+    "dash": true,
+    "hits": 2,
+    "dmg": 148,
+    "poison": 44,
+    "trueCombo": true,
+    "maxY": 0.65,
+    "end": "띄우기→다운"
+   }
+  ],
+  "follow": [
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "그림자 관통 (무적 돌진)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 70,
+     "poison": 48,
+     "trueCombo": true,
+     "maxY": 0.62,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 158,
+    "poison": 52,
+    "trueCombo": true,
+    "maxY": 0.82,
+    "end": "띄우기→다운",
+    "extraHits": 2,
+    "extraDmg": 88
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "그림자 관통 (무적 돌진)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 70,
+     "poison": 48,
+     "trueCombo": true,
+     "maxY": 0.62,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 2,
+    "dmg": 99,
+    "poison": 48,
+    "trueCombo": true,
+    "maxY": 0.75,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 29
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "그림자 관통 (무적 돌진)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 70,
+     "poison": 48,
+     "trueCombo": true,
+     "maxY": 0.62,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 2,
+    "dmg": 125,
+    "poison": 52,
+    "trueCombo": true,
+    "maxY": 0.62,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 55
+   },
+   {
+    "launcher": {
+     "keys": [
+      "S"
+     ],
+     "names": [
+      "그림자 관통 (무적 돌진)"
+     ],
+     "dash": true,
+     "hits": 1,
+     "dmg": 70,
+     "poison": 48,
+     "trueCombo": true,
+     "maxY": 0.62,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "K"
+    ],
+    "hits": 2,
+    "dmg": 148,
+    "poison": 44,
+    "trueCombo": true,
+    "maxY": 0.65,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 78
+   }
+  ]
+ },
+ "freefight": {
+  "name": "자유격투",
+  "concept": "맷집과 슈퍼아머의 종합격투",
+  "desc": "받는 피해가 적고, 특수기는 맞아도 멈추지 않는 슈퍼아머. 니킥에서 플라잉 니로 띄운다.",
+  "traits": [
+   "받는 피해 -10%",
+   "특수키: 파워 스트레이트 (슈퍼아머·가드브레이크)",
+   "대시 특수키: 테이크다운 (슈퍼아머)"
+  ],
+  "stats": {
+   "속도": 3,
+   "리치": 3,
+   "콤보": 3,
+   "파워": 5,
+   "잡기": 3
+  },
+  "moves": [
+   {
+    "id": "ff_jab",
+    "input": "J",
+    "name": "잽",
+    "kind": "손",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 38,
+    "total_dmg": 38,
+    "type": "light",
+    "startup": 7,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ff_cross",
+    "input": "J J",
+    "name": "크로스",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 48,
+    "total_dmg": 48,
+    "type": "light",
+    "startup": 10,
+    "total": 39,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ff_hook",
+    "input": "J J J",
+    "name": "훅",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 72,
+    "total_dmg": 72,
+    "type": "knockdown",
+    "startup": 16,
+    "total": 27,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ff_high",
+    "input": "J J K",
+    "name": "하이킥",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 85,
+    "total_dmg": 85,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 48,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ff_knee",
+    "input": "J K",
+    "name": "니킥",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 55,
+    "total_dmg": 55,
+    "type": "light",
+    "startup": 20,
+    "total": 37,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ff_flyknee",
+    "input": "J K K",
+    "name": "플라잉 니 (띄우기)",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 70,
+    "total_dmg": 70,
+    "type": "launch",
+    "startup": 27,
+    "total": 55,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ff_power",
+    "input": "H",
+    "name": "파워 스트레이트 (슈퍼아머·가드브레이크)",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 100,
+    "total_dmg": 100,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 71,
+    "armor": true,
+    "guardBreak": true,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "rush",
+    "input": "대시 J",
+    "name": "돌진 연타",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "light",
+    "startup": 17,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 5.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ff_tackle",
+    "input": "대시 H",
+    "name": "테이크다운 (슈퍼아머)",
+    "kind": "손",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 80,
+    "total_dmg": 80,
+    "type": "knockdown",
+    "startup": 11,
+    "total": 55,
+    "armor": true,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 7.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumpkick",
+    "input": "점프 중 C",
+    "name": "점프킥",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumppunch",
+    "input": "점프 중 X",
+    "name": "점프 지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "light",
+    "startup": 11,
+    "total": 43,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   }
+  ],
+  "routes": [
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "잽"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 38,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "크로스"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 82,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "크로스",
+     "훅"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 142,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.27,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "크로스",
+     "하이킥"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 153,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "니킥"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 89,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "니킥",
+     "플라잉 니 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 148,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "니킥",
+     "크로스"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 129,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "잽",
+     "니킥",
+     "크로스",
+     "훅"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 184,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.27,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J",
+     "K",
+     "J",
+     "K"
+    ],
+    "names": [
+     "잽",
+     "니킥",
+     "크로스",
+     "하이킥"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 194,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "니킥"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 55,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "니킥",
+     "플라잉 니 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 119,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "니킥",
+     "크로스"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 99,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "니킥",
+     "크로스",
+     "훅"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 159,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.27,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J",
+     "K"
+    ],
+    "names": [
+     "니킥",
+     "크로스",
+     "하이킥"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 170,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "파워 스트레이트 (슈퍼아머·가드브레이크)"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 100,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "돌진 연타"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 50,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "하이킥"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 85,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "테이크다운 (슈퍼아머)"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 80,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.29,
+    "end": "다운"
+   }
+  ],
+  "follow": [
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "K"
+     ],
+     "names": [
+      "잽",
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 148,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 226,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.87,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 78
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "K"
+     ],
+     "names": [
+      "잽",
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 148,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 263,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.87,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 115
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "K"
+     ],
+     "names": [
+      "잽",
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 148,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 261,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.97,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 113
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "K"
+     ],
+     "names": [
+      "잽",
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 148,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 6,
+    "dmg": 253,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.96,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 105
+   },
+   {
+    "launcher": {
+     "keys": [
+      "J",
+      "K",
+      "K"
+     ],
+     "names": [
+      "잽",
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 3,
+     "dmg": 148,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 4,
+    "dmg": 194,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 46
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 119,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 235,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.01,
+    "end": "띄우기→다운",
+    "extraHits": 4,
+    "extraDmg": 116
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 119,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 272,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.01,
+    "end": "띄우기→다운",
+    "extraHits": 5,
+    "extraDmg": 153
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 119,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 245,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.97,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 126
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 119,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 236,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.96,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 117
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K"
+     ],
+     "names": [
+      "니킥",
+      "플라잉 니 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 2,
+     "dmg": 119,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 0.54,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 3,
+    "dmg": 169,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.54,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 50
+   }
+  ]
+ },
+ "ironbone": {
+  "name": "철골권",
+  "concept": "단련된 몸의 묵직한 근접 타격",
+  "desc": "근육과 뼈를 단련해 급소를 노린다. 동작은 단순하지만 한 대가 무겁다. 주먹을 모아 쏘면 가드도 뚫는다.",
+  "traits": [
+   "받는 피해 -10%",
+   "묵직한 타격 (경직·흔들림 ×1.3)",
+   "C 다음 X를 누르고 있으면 기 모으기 → 가드 불가 붕권",
+   "특수키: 어깨 들이받기 (슈퍼아머)"
+  ],
+  "stats": {
+   "속도": 2,
+   "리치": 2,
+   "콤보": 3,
+   "파워": 5,
+   "잡기": 3
+  },
+  "moves": [
+   {
+    "id": "ib_a",
+    "input": "J",
+    "name": "직권",
+    "kind": "손",
+    "limbs": [
+     "hand_l"
+    ],
+    "hits": 1,
+    "dmg": 40,
+    "total_dmg": 40,
+    "type": "light",
+    "startup": 9,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0.8,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_b",
+    "input": "J J",
+    "name": "쌍권",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 48,
+    "total_dmg": 48,
+    "type": "light",
+    "startup": 12,
+    "total": 46,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_c",
+    "input": "J J J",
+    "name": "호조수",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 80,
+    "total_dmg": 80,
+    "type": "knockdown",
+    "startup": 16,
+    "total": 29,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_k1",
+    "input": "K",
+    "name": "정강이 차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 42,
+    "total_dmg": 42,
+    "type": "light",
+    "startup": 28,
+    "total": 37,
+    "armor": false,
+    "guardBreak": false,
+    "low": true,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_k2",
+    "input": "K K",
+    "name": "무릎 치기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "light",
+    "startup": 22,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_k3",
+    "input": "K K K",
+    "name": "짓밟아 차기",
+    "kind": "발",
+    "limbs": [
+     "foot_r"
+    ],
+    "hits": 1,
+    "dmg": 85,
+    "total_dmg": 85,
+    "type": "knockdown",
+    "startup": 16,
+    "total": 45,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_elbow",
+    "input": "K K J",
+    "name": "팔꿈치 내려치기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 45,
+    "total_dmg": 45,
+    "type": "light",
+    "startup": 8,
+    "total": 26,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_palm",
+    "input": "K K J J",
+    "name": "쌍장 올려치기 (띄우기)",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "launch",
+    "startup": 15,
+    "total": 57,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "ib_burst",
+    "input": "K J",
+    "name": "붕권 (홀드: 기 모으기)",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 70,
+    "total_dmg": 70,
+    "type": "knockdown",
+    "startup": 17,
+    "total": 63,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": true
+   },
+   {
+    "id": "ib_bash",
+    "input": "H",
+    "name": "어깨 들이받기 (슈퍼아머)",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 33,
+    "armor": true,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "rush",
+    "input": "대시 J",
+    "name": "돌진 연타",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 50,
+    "total_dmg": 50,
+    "type": "light",
+    "startup": 17,
+    "total": 30,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 5.5,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumpkick",
+    "input": "점프 중 C",
+    "name": "점프킥",
+    "kind": "발",
+    "limbs": [
+     "foot_l"
+    ],
+    "hits": 1,
+    "dmg": 60,
+    "total_dmg": 60,
+    "type": "knockdown",
+    "startup": 19,
+    "total": 40,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   },
+   {
+    "id": "jumppunch",
+    "input": "점프 중 X",
+    "name": "점프 지르기",
+    "kind": "손",
+    "limbs": [
+     "hand_r"
+    ],
+    "hits": 1,
+    "dmg": 75,
+    "total_dmg": 75,
+    "type": "light",
+    "startup": 11,
+    "total": 43,
+    "armor": false,
+    "guardBreak": false,
+    "low": false,
+    "invuln": 0,
+    "lunge": 0,
+    "special": "",
+    "reach": 0,
+    "charge": false
+   }
+  ],
+  "routes": [
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "직권"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 40,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J"
+    ],
+    "names": [
+     "직권",
+     "쌍권"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 84,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "J",
+     "J",
+     "J"
+    ],
+    "names": [
+     "직권",
+     "쌍권",
+     "호조수"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 151,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.37,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "정강이 차기"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 42,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K"
+    ],
+    "names": [
+     "정강이 차기",
+     "무릎 치기"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 88,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "K"
+    ],
+    "names": [
+     "정강이 차기",
+     "무릎 치기",
+     "짓밟아 차기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 159,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.32,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "J"
+    ],
+    "names": [
+     "정강이 차기",
+     "무릎 치기",
+     "팔꿈치 내려치기"
+    ],
+    "dash": false,
+    "hits": 3,
+    "dmg": 126,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K",
+     "K",
+     "J",
+     "J"
+    ],
+    "names": [
+     "정강이 차기",
+     "무릎 치기",
+     "팔꿈치 내려치기",
+     "쌍장 올려치기 (띄우기)"
+    ],
+    "dash": false,
+    "hits": 4,
+    "dmg": 172,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1,
+    "end": "띄우기→다운"
+   },
+   {
+    "keys": [
+     "K",
+     "J"
+    ],
+    "names": [
+     "정강이 차기",
+     "붕권 (홀드: 기 모으기)"
+    ],
+    "dash": false,
+    "hits": 2,
+    "dmg": 106,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.27,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "어깨 들이받기 (슈퍼아머)"
+    ],
+    "dash": false,
+    "hits": 1,
+    "dmg": 75,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "J"
+    ],
+    "names": [
+     "돌진 연타"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 50,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0,
+    "end": "경직"
+   },
+   {
+    "keys": [
+     "K"
+    ],
+    "names": [
+     "짓밟아 차기"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 85,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.32,
+    "end": "다운"
+   },
+   {
+    "keys": [
+     "S"
+    ],
+    "names": [
+     "어깨 들이받기 (슈퍼아머)"
+    ],
+    "dash": true,
+    "hits": 1,
+    "dmg": 75,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 0.43,
+    "end": "다운"
+   }
+  ],
+  "follow": [
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "정강이 차기",
+      "무릎 치기",
+      "팔꿈치 내려치기",
+      "쌍장 올려치기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "K"
+    ],
+    "hits": 7,
+    "dmg": 244,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.03,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 72
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "정강이 차기",
+      "무릎 치기",
+      "팔꿈치 내려치기",
+      "쌍장 올려치기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "cut",
+     "cut",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 244,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.03,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 72
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "정강이 차기",
+      "무릎 치기",
+      "팔꿈치 내려치기",
+      "쌍장 올려치기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "K"
+    ],
+    "hits": 6,
+    "dmg": 228,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.22,
+    "end": "띄우기→다운",
+    "extraHits": 2,
+    "extraDmg": 56
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "정강이 차기",
+      "무릎 치기",
+      "팔꿈치 내려치기",
+      "쌍장 올려치기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jc",
+     "J",
+     "J"
+    ],
+    "hits": 7,
+    "dmg": 270,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.32,
+    "end": "띄우기→다운",
+    "extraHits": 3,
+    "extraDmg": 98
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "정강이 차기",
+      "무릎 치기",
+      "팔꿈치 내려치기",
+      "쌍장 올려치기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "K"
+    ],
+    "hits": 5,
+    "dmg": 213,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.1,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 41
+   },
+   {
+    "launcher": {
+     "keys": [
+      "K",
+      "K",
+      "J",
+      "J"
+     ],
+     "names": [
+      "정강이 차기",
+      "무릎 치기",
+      "팔꿈치 내려치기",
+      "쌍장 올려치기 (띄우기)"
+     ],
+     "dash": false,
+     "hits": 4,
+     "dmg": 172,
+     "poison": 0,
+     "trueCombo": true,
+     "maxY": 1,
+     "end": "띄우기→다운"
+    },
+    "follow": [
+     "jump",
+     "J"
+    ],
+    "hits": 5,
+    "dmg": 223,
+    "poison": 0,
+    "trueCombo": true,
+    "maxY": 1.21,
+    "end": "띄우기→다운",
+    "extraHits": 1,
+    "extraDmg": 51
+   }
+  ]
+ }
+}
