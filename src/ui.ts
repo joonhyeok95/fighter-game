@@ -147,7 +147,7 @@ export function screens(g: Game) {
         <div class="combo"></div>
         <div class="guide"></div>
         <div class="keys">방향키(또는 IJKL) 이동 · Space 점프(2단) · X 손 · C 발/기상공격 · Z 가드 · Z+X 잡기 · Z+C 반격 · X+C 회피 · V 연타 난무(판당 1회) · 방향키 두 번 대시 (+X 아머 어택 / +C 날라차기) · O 변신 · Esc 일시정지</div>
-        ${g.match.practice ? '<div class="practice">PRACTICE · 무한 체력 · F1 히트박스</div>' : ''}
+        ${g.match.practice ? '<div class="practice">PRACTICE · 무한 체력 · F1 히트박스 · H 사용법</div>' : ''}
       </div>`);
       setLayer(el);
     },

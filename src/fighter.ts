@@ -49,7 +49,7 @@ export class Fighter {
   /** 난무 uses left this round · dash is locked after a dash attack until the run input is released · double-jump somersault timer */
   nanmu = 1; dashLock = false; tumbleT = -1; squash = 0; tailA = 0; tailV = 0;
   state: State = 'idle'; stateT = 0; move?: MoveDef; hitDone = new Set<string>(); queued?: string; queuedGrab = false; specialDone = false;
-  freeze = 0; shake = 0; flash = 0; flashColor = new THREE.Color(1, 1, 1); invuln = 0; combo = 0; comboDmg = 0; comboT = 0;
+  freeze = 0; hitT = 0; shake = 0; flash = 0; flashColor = new THREE.Color(1, 1, 1); invuln = 0; combo = 0; comboDmg = 0; comboT = 0;
   lastHitBy?: Fighter; lastHitAt = -999; koPending = false; stunFor = 20; downFace = false;
   poisonT = 0; poisonBy?: Fighter; confuseT = 0; veilT = 0;
   grabbedBy?: Fighter; holding?: Fighter; throwKind: 'normal' | 'hip' | 'counter' = 'normal';
@@ -76,7 +76,7 @@ export class Fighter {
   hasArmor() { const m = this.move; return this.state === 'attack' && !!m?.armor && this.animTime() <= (m.activeTo ?? 0) + 0.05; }
 
   play(name: string, o: { loop?: boolean; speed?: number; fade?: number; at?: number } = {}) {
-    const a = this.actions.get(name); if (!a) { console.warn('no anim', name); return; }
+    const a = this.actions.get(this.style.anims?.[name] ?? name); if (!a) { console.warn('no anim', name); return; } // each style may bring its own stance
     const loop = o.loop ?? /_Loop$|guard_pose/.test(name);
     if (this.cur === a && loop) { a.timeScale = o.speed ?? 1; return; }
     a.reset(); a.setLoop(loop ? THREE.LoopRepeat : THREE.LoopOnce, Infinity); a.clampWhenFinished = true;
@@ -166,7 +166,7 @@ export class Fighter {
     if (this.transformT > 0) { this.transformT -= DT; if (this.transformT <= 0) world.endTransform(this); }
     const c = this.ctrl;
     if (!c.dash) this.dashLock = false; else if (this.dashLock) c.dash = false;
-    const speed = c.dash ? 7.0 : 4.2;
+    const speed = (c.dash ? 7.0 : 4.2) * (this.style.moveSpeed ?? 1);
 
     switch (this.state) {
       case 'idle': case 'move': {
@@ -287,7 +287,7 @@ export class Fighter {
     // combo inputs (buffered): J / K / S branch, U = grab cancel (jujutsu)
     // chain window: from the first active frame until ~10F after the last hit. Later presses don't chain;
     // a late X instead cuts the recovery into a fresh first punch ("끊치": repeated single jabs)
-    const chainOpen = m.nanmu || t <= lastTo + (6 / 60) * m.speed;
+    const chainOpen = m.nanmu || t <= lastTo + ((this.hitDone.size > 0 ? 13 : 6) / 60) * m.speed; // a landed hit keeps the follow-up window open longer (there is no hit-stop to think in)
     const jabChain = m.id === this.style.J || MOVES[this.style.J]?.next?.J === m.id;
     if (!chainOpen && this.grounded && !this.queued && jabChain && this.hitDone.size > 0 && this.pressed('J')) { this.startMove(this.style.J, world); return; }
     // one queued follow-up per move; an extra press stays buffered for the move after it (fast mashing works)
@@ -408,7 +408,7 @@ export class Fighter {
     if (this.freeze <= 0) this.mixer.update(DT);
     // hit-stop shake of the victim + flash
     this.model.position.x = this.shake > 0 ? (this.shake % 2 ? 1 : -1) * 0.06 * Math.min(1, this.shake / 4) : 0;
-    if (this.shake > 0) this.shake--;
+    if (this.shake > 0) this.shake--; if (this.hitT > 0) this.hitT--;
     this.model.position.y *= 0.7;
     // struck: the body squashes for a few frames, then springs back
     if (this.squash > 0) { const k = Math.sin((this.squash / 8) * Math.PI) * 0.16; this.model.scale.set(1 + k * 0.8, 1 - k, 1 + k * 0.8); if (this.freeze <= 0) this.squash--; } else this.model.scale.set(1, 1, 1);

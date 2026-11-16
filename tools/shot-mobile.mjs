@@ -15,7 +15,7 @@ const info = await p.evaluate(() => {
   const g = window.__sa; g.manual = true; g.match = { ai: 3, difficulty: 'hard', wins: 2, practice: false };
   g.pcfg = { body: 'male', suit: 0x2f6fdb, style: 'kickboxing' }; g.autopilot = true; g.startMatch();
   let t = 0; const P = g.player;
-  while (t < 2500) { g.tick(); t++; if (t < 300) continue; if (P.state === 'attack' && P.freeze > 3 && P.combo >= 2) break; }
+  while (t < 2500) { g.tick(); t++; if (t < 300) continue; if (P.state === 'attack' && P.hitT > 0 && P.combo >= 2) break; }
   g.render(); return { t, screen: g.screen, show: document.querySelector('#touch').className, lay: getComputedStyle(document.querySelector('#ui')).transform };
 });
 console.log(JSON.stringify(info));

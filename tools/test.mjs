@@ -56,7 +56,7 @@ await test('중력: 점프 정점 높이 = v²/2g, 체공시간 = v/g·(1+1/√�
 });
 await test('띄우기 후 체공: 띄운 상대는 절반 중력으로 떠 있다 (9.81×1.8×0.5 m/s²)', () => {
   const [a, v] = T.duel('kickboxing'); const ys = [];
-  T.run(T.seq(['J', 'K', 'J'], 14), {}, 90, () => { if (v.state === 'launched' && v.freeze === 0) ys.push(v.vel.y); });
+  T.run(T.seq(['J', 'K', 'J'], 14), {}, 90, () => { if (v.state === 'launched') ys.push(v.vel.y); });
   // finite difference of vertical velocity while airborne (excluding hit frames)
   const acc = []; for (let i = 1; i < ys.length; i++) { const d = (ys[i] - ys[i - 1]) * 60; if (d < 0 && d > -30) acc.push(-d); }
   const avg = acc.reduce((s, x) => s + x, 0) / Math.max(1, acc.length);
@@ -64,14 +64,24 @@ await test('띄우기 후 체공: 띄운 상대는 절반 중력으로 떠 있�
 });
 
 // ---------------- hit feel
-await test('타격감: 무거운 기술일수록 히트스톱이 길다 (잽 < 미들킥 < 하이킥)', () => {
-  const out = {};
+await test('타격감: 히트스톱(슬로우) 없음 — 맞아도 때려도 멈추지 않고, 무거운 기술일수록 흔들림만 커진다', () => {
+  const out = {}; let frozen = 0;
   for (const [name, keys] of [['잽', ['J']], ['미들킥', ['J', 'J', 'K']], ['하이킥', ['K', 'K']]]) {
     const [a, v] = T.duel('kickboxing'); let maxF = 0, lastMove = '';
-    T.run(T.seq(keys, 14), {}, 120, () => { if (a.move) lastMove = a.move.id; if (a.freeze > maxF && (lastMove === { 잽: 'kb_jab', 미들킥: 'kb_mid', 하이킥: 'kb_high' }[name])) maxF = a.freeze; });
+    T.run(T.seq(keys, 14), {}, 120, () => { frozen = Math.max(frozen, a.freeze, v.freeze); if (a.move) lastMove = a.move.id; if (a.hitT > maxF && (lastMove === { 잽: 'kb_jab', 미들킥: 'kb_mid', 하이킥: 'kb_high' }[name])) maxF = a.hitT; });
     out[name] = maxF;
   }
-  return { ok: out['잽'] < out['미들킥'] && out['미들킥'] < out['하이킥'], msg: Object.entries(out).map(([k, v]) => `${k} ${v}F`).join(' / ') };
+  return { ok: frozen === 0 && out['잽'] > 0 && out['잽'] < out['미들킥'] && out['미들킥'] < out['하이킥'], msg: `정지 ${frozen}F / 흔들림 ` + Object.entries(out).map(([k, v]) => `${k} ${v}`).join(' < ') };
+});
+await test('비전서 개성: 태권도 정권은 철골권 직권보다 3배 빠르고 가볍다 · 전용 대기 자세', () => {
+  const r = {};
+  for (const st of ['taekwondo', 'ironbone']) {
+    const [a, v] = T.duel(st); const hp = v.hp; let hitAt = -1, t = 0; const idle = a.curName + '>' + (a.style.anims?.Idle_Loop ?? '-');
+    T.run(T.seq(['J'], 14), {}, 80, () => { t++; if (hitAt < 0 && v.hp < hp) hitAt = t; });
+    r[st] = { hitAt, dmg: hp - v.hp, idle };
+  }
+  const tk = r.taekwondo, ib = r.ironbone;
+  return { ok: tk.hitAt > 0 && ib.hitAt >= tk.hitAt * 2.5 && ib.dmg >= tk.dmg * 2 && tk.idle.includes('tk_idle') && ib.idle.includes('ib_idle'), msg: `태권도 ${tk.hitAt}F ${tk.dmg}dmg / 철골권 ${ib.hitAt}F ${ib.dmg}dmg` };
 });
 await test('타격감: 피격자 흔들림·번쩍임·카메라 흔들림 발생', () => {
   const [a, v] = T.duel('kickboxing'); let shake = 0, flash = 0, cam = 0;
@@ -122,10 +132,11 @@ await test('철골권 C X(홀드): 기 모은 붕권은 가드를 뚫고, 짧게
   const full = run(60), tap = run(3);
   return { ok: full.dmg > 80 && full.maxCharge >= 20 && tap.dmg === 0, msg: `홀드: 피해 ${full.dmg} (충전 ${full.maxCharge}F) / 짧게: 피해 ${tap.dmg}` };
 });
-await test('공중 콤보: 띄우기 → 정권 → 끊치 2회 → 두번지르기 → 옆차기 (8타)', () => {
-  const [a, v] = T.duel('taekwondo'); const at = [0, 17, 80, 134, 172, 186, 200]; const keys = ['K', 'J', 'J', 'J', 'J', 'J', 'K'];
-  T.run((i) => { const k = at.indexOf(i); return k >= 0 ? { [keys[k]]: true } : {}; }, {}, 260);
-  return { ok: a.stats.maxCombo >= 8, msg: `최대 콤보 ${a.stats.maxCombo}타` };
+await test('공중 콤보: 띄우기 → 정권 → 끊치 2회 → 두번·세번지르기 → 옆차기 (8타)', () => {
+  const [a, v] = T.duel('taekwondo'); const at = [0, 17, 80, 98, 104, 112, 122]; const keys = ['K','J','J','J','J','J','K']; const log = [];
+  T.run((i) => { const k = at.indexOf(i); return k >= 0 ? { [keys[k]]: true } : {}; }, {}, 260, () => { log.push((a.move?.id ?? a.state) + ':' + a.combo + ':' + v.state + ':' + v.pos.y.toFixed(1)); });
+  
+  return { ok: a.stats.maxCombo >= 8, msg: `최대 콤보 ${a.stats.maxCombo}타` + (typeof L === "string" ? L : "") };
 });
 await test('끊치: 늦게 누른 X는 다음 기술이 아니라 첫 주먹을 다시 낸다', () => {
   const [a, v] = T.duel('taekwondo'); const ids = [];

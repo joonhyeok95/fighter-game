@@ -11,7 +11,7 @@ const info = await p.evaluate(({ ai, minTicks }) => {
   let t = 0; const P = g.player;
   while (t < 3000) { g.tick(); t++; if (t < minTicks) continue;
     const near = g.fighters.filter((f) => f !== P && f.alive && f.pos.distanceTo(P.pos) < 3).length;
-    if (P.state === 'attack' && P.freeze > 3 && near >= 1 && P.combo >= 2) break; }
+    if (P.state === 'attack' && P.hitT > 0 && near >= 1 && P.combo >= 2) break; }
   for (let i = 0; i < 1; i++) g.tick();
   document.querySelectorAll('.banner,.dmg,.pop').forEach((e) => e.remove()); g.render(); return { t, combo: g.player.combo };
 }, { ai, minTicks });

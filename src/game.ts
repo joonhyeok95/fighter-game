@@ -13,7 +13,8 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { FX, makeAura, makeBlade } from './fx';
 import * as UI from './ui';
-import { initTouch, syncTouch, pad } from './touch';
+import { initTouch, syncTouch, pad, isTouch } from './touch';
+import { initPractice, syncPractice, practiceKey, dummyCtrl, DummyMode } from './practice';
 
 type Screen = 'loading' | 'title' | 'menu' | 'setup' | 'select' | 'game' | 'pause' | 'round' | 'result' | 'moves' | 'settings' | 'credits';
 
@@ -72,6 +73,8 @@ class Game implements World {
   screen: Screen = 'loading'; prevScreen: Screen = 'menu';
   fighters: Fighter[] = []; ai = new Map<Fighter, AIController>(); player?: Fighter; smokes: Smoke[] = [];
   match: MatchCfg = { ai: 3, difficulty: 'normal', wins: 2, practice: false };
+  /** practice mode: what the training partner does, its strike timer, and whether the how-to panel is open */
+  dummy: DummyMode = 'idle'; dummyT = 0; guideOpen = true;
   pcfg: PlayerCfg = { body: 'male', suit: SUITS[0], style: OPEN_STYLES[0] };
   round = 1; timer = 99; tickN = 0; introT = 0; endT = 0; roundWinner?: Fighter;
   keys = new Set<string>(); camYaw = 0; camPitch = 0.6; camDist = 6.4; dragging = false;
@@ -103,7 +106,7 @@ class Game implements World {
     }
     const fit = () => this.resize();
     addEventListener('resize', fit); addEventListener('orientationchange', () => { fit(); setTimeout(fit, 350); }); window.visualViewport?.addEventListener('resize', fit);
-    UI.layout(); initTouch(this);
+    UI.layout(); initTouch(this); initPractice(this);
     // capture phase on window + document so nothing (focused buttons, IME, remote sessions) swallows the keys
     const down = (e: KeyboardEvent) => { const c = codeOf(e); if (!c) return; this.keys.add(c); this.onKey(e, c); };
     addEventListener('keydown', down, true);
@@ -171,6 +174,7 @@ class Game implements World {
       else if (['setup', 'moves', 'settings', 'credits'].includes(this.screen)) this.go('menu');
       else if (this.screen === 'select') this.go(this.match.practice ? 'menu' : 'setup');
     }
+    if (practiceKey(this, code)) { e.preventDefault(); return; }
     if (code === 'F1') { this.settings.showHitboxes = !this.settings.showHitboxes; e.preventDefault(); }
     if ((code === 'Space' || code.startsWith('Arrow')) && this.screen === 'game') e.preventDefault();
   }
@@ -239,6 +243,7 @@ class Game implements World {
       const [name, col, body, style] = AI_ROSTER[i % AI_ROSTER.length];
       this.spawn({ name: this.match.practice ? '연습 상대' : name, team: i + 1, body, suit: col, joints: 0x222222, style: OPEN_STYLES.includes(style) ? style : OPEN_STYLES[i % OPEN_STYLES.length] }, this.match.practice ? undefined : this.match.difficulty);
     }
+    this.dummy = 'idle'; this.dummyT = 0; this.guideOpen = !isTouch();
     this.startRound();
   }
   startRound() {
@@ -330,13 +335,14 @@ class Game implements World {
     if (att.style.poison) { v.poisonT = 120; v.poisonBy = att; }
     const finisher = lastHit && m.type !== 'light';
     const ko = v.hp <= 0;
-    // hit-feel: freeze both, shake the victim, flash, camera kick, sound, sparks
+    // hit-feel with no slow-down at all: shake the victim, flash, camera kick, sound, sparks
     const imp = att.style.impact ?? 1;
     this.hitStop(att, v, Math.round((HITSTOP[w] + (ko ? 6 : 0) + (finisher && att.combo >= 3 ? 3 : 0)) * imp));
     v.flashColor.setRGB(1, 1, 1); v.flash = 6; v.squash = 8;
     this.camShake = Math.max(this.camShake, SHAKE[w] * imp * (ko ? 1.6 : 1));
     this.camKick.addScaledVector(dir, SHAKE[w] * 0.9 * imp); this.camKick.y -= SHAKE[w] * 0.5 * imp; this.fovKick = Math.max(this.fovKick, FOV_KICK[w] * imp);
-    if (imp > 1 && w >= 2 && v.grounded) this.fx.dust(v.pos, 0.45 + 0.15 * w); // heavy kicks kick up dust under the victim
+    if (imp > 1 && w >= 2 && v.grounded) this.fx.dust(v.pos, 0.45 + 0.15 * w);
+    if (imp >= 1.4 && w >= 3 && att.grounded) this.fx.dust(att.pos, 0.55); // iron-heavy blows: the striker's planted foot cracks the floor too // heavy kicks kick up dust under the victim
     this.fx.hit(at, m.reach ? 'sword' : w >= 3 ? 'heavy' : w === 2 ? 'medium' : 'hit', dir, w);
     // super armor: take the damage, keep attacking
     if (v.hasArmor() && !ko) { v.flashColor.setRGB(1, 0.7, 0.2); UI.popText(this, v, '아머', '#fb923c'); return; }
@@ -391,7 +397,8 @@ class Game implements World {
     }
     return Math.min(70, Math.round(need));
   }
-  hitStop(a: Fighter, b: Fighter, frames: number) { a.freeze = Math.max(a.freeze, frames); b.freeze = Math.max(b.freeze, frames); b.shake = frames; }
+  /** impact feedback only: nobody is ever frozen or slowed, the victim just rattles for a few frames */
+  hitStop(a: Fighter, b: Fighter, frames: number) { b.shake = Math.max(b.shake, Math.min(12, frames)); a.hitT = b.hitT = Math.max(4, frames); }
   damage(att: Fighter, v: Fighter, dmg: number, at: THREE.Vector3, w = 1) {
     if (this.match.practice && v !== this.player && v.hp - dmg <= 0) v.hp = v.maxHp + dmg;
     v.hp = Math.max(0, v.hp - dmg); v.lastHitBy = att; v.lastHitAt = this.tickN;
@@ -573,7 +580,7 @@ class Game implements World {
       else if (f === this.player && this.screen === 'game' && this.autopilot) { if (!this.ai.has(f)) this.ai.set(f, new AIController(f, 'hard', rand)); f.ctrl = this.ai.get(f)!.think(fs); }
       else if (f === this.player && this.screen === 'game') f.ctrl = this.readPlayer();
       else if (this.ai.has(f)) f.ctrl = this.ai.get(f)!.think(fs);
-      else f.ctrl = emptyCtrl();
+      else f.ctrl = this.match.practice && f !== this.player && this.screen === 'game' ? dummyCtrl(this, f) : emptyCtrl();
       f.update(this);
       this.trail(f);
       if (f.aura) f.aura.children.forEach((c: any) => { if (c.isSprite) c.material.rotation += c.spin; });
@@ -693,7 +700,7 @@ class Game implements World {
     this.render(dt);
   };
   render(dt = DT) {
-    syncTouch(this);
+    syncTouch(this); syncPractice(this);
     this.updateCamera(dt);
     this.drawHitboxes();
     this.stage?.userData.tick?.(performance.now() / 1000);

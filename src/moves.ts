@@ -39,8 +39,9 @@ export const MOVES: Record<string, MoveDef> = {
 
   // ===== 태권도 =====
   // 손 2개 · 발 5개 · 띄우기 1개 · 특수 2개. 연계: X X C / C C C / C C X / C X(띄우기)
-  tk_punch: M({ id: 'tk_punch', name: '정권지르기', anim: 'Punch_Cross', speed: 1, dmg: 45, type: 'light', hitstun: 22, kb: [1.2, 0], lunge: 1.4, weight: 2, next: { J: 'tk_punch2' } }),
-  tk_punch2: M({ id: 'tk_punch2', name: '두번지르기', anim: 'punch_seq_b', speed: 1, dmg: 40, type: 'light', hitstun: 22, kb: [1.2, 0], next: { K: 'tk_side' } }),
+  tk_punch: M({ id: 'tk_punch', name: '정권지르기', anim: 'tk_punch', speed: 1, dmg: 24, type: 'light', hitstun: 16, kb: [0.5, 0], lunge: 1.2, weight: 1, next: { J: 'tk_punch2', K: 'tk_front' } }),
+  tk_punch2: M({ id: 'tk_punch2', name: '두번지르기', anim: 'tk_punch2', speed: 1, dmg: 24, type: 'light', hitstun: 16, kb: [0.5, 0], weight: 1, next: { J: 'tk_punch3', K: 'tk_side' } }),
+  tk_punch3: M({ id: 'tk_punch3', name: '세번지르기', anim: 'tk_punch3', speed: 1, dmg: 30, type: 'light', hitstun: 20, kb: [1.0, 0], weight: 1, next: { K: 'tk_side' } }),
   tk_front: M({ id: 'tk_front', name: '앞차기', anim: 'kick_front', speed: 1, dmg: 55, type: 'light', hitstun: 24, kb: [1.4, 0], reach: 0.15, weight: 2, next: { K: 'tk_round', J: 'tk_double' } }),
   tk_round: M({ id: 'tk_round', name: '돌려차기', anim: 'kick_round', speed: 1, dmg: 70, type: 'light', hitstun: 28, kb: [1.8, 0], reach: 0.15, weight: 2, next: { K: 'tk_back', J: 'tk_hook' } }),
   tk_hook: M({ id: 'tk_hook', name: '뒤돌려차기', anim: 'kick_spin', speed: 1, dmg: 105, type: 'knockdown', kb: [10.5, 3.4], reach: 0.15, weight: 3 }),
@@ -89,15 +90,15 @@ export const MOVES: Record<string, MoveDef> = {
 
   // ===== 철골권 (단련된 몸의 묵직한 근접 타격) =====
   // X X X / C C C / C C X X(띄우기) / C X, C (X 홀드) = 기 모으기 가드 불가
-  ib_a: M({ id: 'ib_a', name: '직권', anim: 'Punch_Jab', speed: 1, dmg: 40, type: 'light', hitstun: 22, kb: [1.0, 0], lunge: 0.8, weight: 2, next: { J: 'ib_b' } }),
-  ib_b: M({ id: 'ib_b', name: '쌍권', anim: 'Punch_Cross', speed: 1, dmg: 48, type: 'light', hitstun: 24, kb: [1.2, 0], weight: 2, next: { J: 'ib_c' } }),
-  ib_c: M({ id: 'ib_c', name: '호조수', anim: 'punch_seq_c', speed: 1, dmg: 80, type: 'knockdown', kb: [8, 2.8], weight: 3 }),
-  ib_k1: M({ id: 'ib_k1', name: '정강이 차기', anim: 'kick_low', speed: 1, dmg: 42, type: 'light', hitstun: 24, kb: [1.0, 0], low: true, weight: 2, next: { K: 'ib_k2', J: 'ib_burst' } }),
-  ib_k2: M({ id: 'ib_k2', name: '무릎 치기', anim: 'knee', speed: 1, dmg: 50, type: 'light', hitstun: 26, kb: [1.2, 0], weight: 2, next: { K: 'ib_k3', J: 'ib_elbow' } }),
-  ib_k3: M({ id: 'ib_k3', name: '짓밟아 차기', anim: 'stomp_kick', speed: 1, dmg: 85, type: 'knockdown', kb: [9, 2.6], weight: 3 }),
-  ib_elbow: M({ id: 'ib_elbow', name: '팔꿈치 내려치기', anim: 'elbow_drop', speed: 1, dmg: 45, type: 'light', hitstun: 26, kb: [0.8, 0], weight: 2, next: { J: 'ib_palm' } }),
-  ib_palm: M({ id: 'ib_palm', name: '쌍장 올려치기 (띄우기)', anim: 'uppercut', speed: 1, dmg: 60, type: 'launch', kb: [0.4, 7.6], weight: 3 }),
-  ib_burst: M({ id: 'ib_burst', name: '붕권 (홀드: 기 모으기)', anim: 'charge_punch', speed: 1, dmg: 70, type: 'knockdown', kb: [7, 2.4], weight: 3, charge: true }),
+  ib_a: M({ id: 'ib_a', name: '직권', anim: 'ib_straight', speed: 1, dmg: 62, type: 'light', hitstun: 30, kb: [1.8, 0], lunge: 0.8, weight: 3, next: { J: 'ib_b' } }),
+  ib_b: M({ id: 'ib_b', name: '역권', anim: 'ib_hook', speed: 1, dmg: 72, type: 'light', hitstun: 32, kb: [2.2, 0], weight: 3, next: { J: 'ib_c' } }),
+  ib_c: M({ id: 'ib_c', name: '호조수', anim: 'punch_seq_c', speed: 0.9, dmg: 105, type: 'knockdown', kb: [7.5, 2.8], weight: 3 }),
+  ib_k1: M({ id: 'ib_k1', name: '정강이 차기', anim: 'kick_low', speed: 0.85, dmg: 52, type: 'light', hitstun: 28, kb: [1.2, 0], low: true, weight: 2, next: { K: 'ib_k2', J: 'ib_burst' } }),
+  ib_k2: M({ id: 'ib_k2', name: '무릎 치기', anim: 'knee', speed: 0.85, dmg: 60, type: 'light', hitstun: 30, kb: [1.4, 0], weight: 3, next: { K: 'ib_k3', J: 'ib_elbow' } }),
+  ib_k3: M({ id: 'ib_k3', name: '짓밟아 차기', anim: 'stomp_kick', speed: 1, dmg: 100, type: 'knockdown', kb: [8, 2.6], weight: 3 }),
+  ib_elbow: M({ id: 'ib_elbow', name: '팔꿈치 내려치기', anim: 'elbow_drop', speed: 0.9, dmg: 58, type: 'light', hitstun: 26, kb: [0.8, 0], weight: 2, next: { J: 'ib_palm' } }),
+  ib_palm: M({ id: 'ib_palm', name: '쌍장 올려치기 (띄우기)', anim: 'uppercut', speed: 0.9, dmg: 72, type: 'launch', kb: [0.4, 7.6], weight: 3 }),
+  ib_burst: M({ id: 'ib_burst', name: '붕권 (홀드: 기 모으기)', anim: 'charge_punch', speed: 1, dmg: 90, type: 'knockdown', kb: [7, 2.4], weight: 3, charge: true }),
   ib_bash: M({ id: 'ib_bash', name: '어깨 들이받기 (슈퍼아머)', anim: 'Shield_Dash_RM', speed: 1, dmg: 75, type: 'knockdown', kb: [9, 3], lunge: 5, armor: true, weight: 3 }),
 
   // ===== 공용: 대시 공격 · 난무 =====
@@ -131,7 +132,7 @@ export const MOVES: Record<string, MoveDef> = {
 export interface StyleDef {
   id: string; name: string; color: number; concept: string; desc: string; traits: string[];
   J: string; K: string; S: string; dashJ: string; dashK: string; dashS: string; air: string;
-  grabRange: number; impact?: number; doubleJump?: boolean; counterThrow?: boolean; comboGrab?: boolean; poison?: boolean; dmgTaken?: number;
+  grabRange: number; impact?: number; moveSpeed?: number; anims?: Record<string, string>; doubleJump?: boolean; counterThrow?: boolean; comboGrab?: boolean; poison?: boolean; dmgTaken?: number;
   stats: { 속도: number; 리치: number; 콤보: number; 파워: number; 잡기: number };
   combos: string[]; // recommended routes shown in the move list / guide
 }
@@ -146,12 +147,12 @@ export const STYLES: Record<string, StyleDef> = {
     combos: ['X X X — 잽 · 크로스 · 훅 (다운)', 'X X C C — 잽 · 크로스 · 미들킥 · 하이킥 (다운)', 'X C X — 잽 · 로우킥 · 니킥 (띄우기) → 점프 C', 'V X — 원투쓰리 · 훅'],
   },
   taekwondo: {
-    id: 'taekwondo', name: '태권도', color: 0x3b82f6, concept: '묵직한 한 방의 발차기',
-    desc: '한 방 한 방이 무거운 발차기. 앞차기 → 돌려차기 → 뒤후려차기, 나래차기로 띄운 뒤 공중 추격.',
-    traits: ['발차기 리치 +15~20cm', '묵직한 타격 (경직·흔들림 ×1.35)', '특수키: 540 회전차기', '대시 + 발: 이단 옆차기'],
+    id: 'taekwondo', name: '태권도', color: 0x3b82f6, concept: '경쾌한 스텝, 빠른 정권, 결정타는 발차기',
+    desc: '제자리 스텝을 밟다가 가볍고 빠른 정권 연타로 틈을 만들고, 길고 화려한 발차기로 끝낸다. 주먹은 약하지만 가장 먼저 닿는다.',
+    traits: ['제자리 스텝 · 이동 속도 +6%', '정권지르기: 발동 5F로 가장 빠르다 (피해는 가벼움)', '발차기 리치 +15~20cm', '발차기 결정타: 뒤후려차기 · 뒤돌려차기 · 옆차기'],
     J: 'tk_punch', K: 'tk_front', S: 'tk_tornado', dashJ: 'rush', dashK: 'tk_jumpside', dashS: 'tk_tornado', air: 'jumpkick',
-    grabRange: 1.2, impact: 1.35, stats: { 속도: 3, 리치: 5, 콤보: 3, 파워: 5, 잡기: 1 },
-    combos: ['C C C — 앞차기 · 돌려차기 · 뒤후려차기 (다운)', 'C C X — 앞차기 · 돌려차기 · 뒤돌려차기 (다운·링아웃)', 'C X — 앞차기 · 나래차기 (띄우기) → 점프 → C', 'X X C — 정권지르기 · 두번지르기 · 옆차기 (링아웃)', 'V — 540 회전차기 · 대시 C — 이단 옆차기'],
+    grabRange: 1.2, moveSpeed: 1.06, anims: { Idle_Loop: 'tk_idle_Loop' }, stats: { 속도: 5, 리치: 5, 콤보: 5, 파워: 3, 잡기: 1 },
+    combos: ['X X X C — 정권 3연타 · 옆차기 (다운·링아웃)', 'X C C C — 정권 · 앞차기 · 돌려차기 · 뒤후려차기 (다운)', 'C C X — 앞차기 · 돌려차기 · 뒤돌려차기 (다운·링아웃)', 'C X — 앞차기 · 나래차기 (띄우기) → 점프 → C', 'V — 540 회전차기 · 대시 C — 이단 옆차기'],
   },
   jujutsu: {
     id: 'jujutsu', name: '유술', color: 0xf59e0b, concept: '잡기와 던지기의 달인',
@@ -186,12 +187,12 @@ export const STYLES: Record<string, StyleDef> = {
     combos: ['X X X — 잽 · 크로스 · 훅 (다운)', 'X X C — 잽 · 크로스 · 하이킥 (다운)', 'C C — 니킥 · 플라잉 니 (띄우기) → 점프 C', 'V — 파워 스트레이트 (가드 뚫기)'],
   },
   ironbone: {
-    id: 'ironbone', name: '철골권', color: 0xb45309, concept: '단련된 몸의 묵직한 근접 타격',
-    desc: '근육과 뼈를 단련해 급소를 노린다. 동작은 단순하지만 한 대가 무겁다. 주먹을 모아 쏘면 가드도 뚫는다.',
-    traits: ['받는 피해 -10%', '묵직한 타격 (경직·흔들림 ×1.3)', 'C 다음 X를 누르고 있으면 기 모으기 → 가드 불가 붕권', '특수키: 어깨 들이받기 (슈퍼아머)'],
+    id: 'ironbone', name: '철골권', color: 0xb45309, concept: '느리지만 한 방 한 방이 쇳덩이',
+    desc: '낮은 기마 자세로 버티고 서서, 허리를 끝까지 감았다가 온몸으로 내리꽂는다. 발동은 느리지만 한 대가 다른 비전서의 두세 대 값을 한다.',
+    traits: ['움직이지 않는 기마 자세 · 이동 속도 -8%', '모든 타격이 묵직하다: 피해 +50%, 발동은 느림', '받는 피해 -15%', 'C 다음 X를 누르고 있으면 기 모으기 → 가드 불가 붕권'],
     J: 'ib_a', K: 'ib_k1', S: 'ib_bash', dashJ: 'rush', dashK: 'ib_k3', dashS: 'ib_bash', air: 'jumpkick',
-    grabRange: 1.25, impact: 1.3, dmgTaken: 0.9, stats: { 속도: 2, 리치: 2, 콤보: 3, 파워: 5, 잡기: 3 },
-    combos: ['X X X — 직권 · 쌍권 · 호조수 (다운)', 'C C C — 정강이 · 무릎 · 짓밟아 차기 (다운)', 'C C X X — 정강이 · 무릎 · 팔꿈치 · 쌍장 (띄우기) → X 끊치', 'C X(홀드) — 기 모은 붕권 (가드 불가)'],
+    grabRange: 1.25, impact: 1.5, dmgTaken: 0.85, moveSpeed: 0.92, anims: { Idle_Loop: 'ib_idle_Loop' }, stats: { 속도: 1, 리치: 2, 콤보: 2, 파워: 5, 잡기: 3 },
+    combos: ['X X X — 직권 · 역권 · 호조수 (다운)', 'C C C — 정강이 · 무릎 · 짓밟아 차기 (다운)', 'C C X X — 정강이 · 무릎 · 팔꿈치 · 쌍장 (띄우기) → X 끊치', 'C X(홀드) — 기 모은 붕권 (가드 불가)'],
   },
 };
 // every style shares the same dash attacks and the once-per-round 난무 on V

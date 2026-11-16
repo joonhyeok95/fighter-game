@@ -124,6 +124,16 @@ const def = (name: string, keys: Key[], meta: Partial<ClipMeta> = {}) => { build
 // ================================================================== locomotion
 def('Idle_Loop', [[0, ST], [30, S({ s1: [9, 8, 0], uaL: [-46, -10, 15], laL: -104, uaR: [-22, 10, -19], laR: -128, thL: [-34, 25, 10], cL: 46, fL: -12, thR: [17, -15, -14], cR: 38, fR: -34 })], [60, ST]]);
 
+// --- style stances
+// 태권도: side-on and light on the toes, bouncing and switching weight the whole time
+const TK_LO = look({ pel: [0, -54, 0], s1: [3, 14, 0], s3: [0, 16, 0], uaL: [-24, -8, 14], laL: -62, uaR: [-26, 18, -16], laR: -126, thL: [-28, 48, 8], cL: 40, fL: -12, thR: [14, 12, -12], cR: 36, fR: -36 });
+const TK_HI = look({ pel: [0, -50, 0], s1: [0, 13, 0], s3: [0, 15, 0], uaL: [-30, -8, 16], laL: -74, uaR: [-30, 18, -18], laR: -132, thL: [-14, 44, 8], cL: 14, fL: 24, thR: [6, 12, -12], cR: 12, fR: 14, p: [0, 0.12, 0] });
+const TK_LO2 = look({ pel: [0, -44, 0], s1: [4, 12, 0], s3: [0, 14, 0], uaL: [-20, -8, 14], laL: -56, uaR: [-24, 18, -16], laR: -122, thL: [-20, 38, 8], cL: 36, fL: -16, thR: [4, 4, -12], cR: 34, fR: -30, p: [0, 0, 0.03] });
+def('tk_idle_Loop', [[0, TK_LO], [6, TK_HI, 'out'], [12, TK_LO2, 'in'], [18, { ...TK_HI, p: [0, 0.11, 0.02] }, 'out'], [24, TK_LO, 'in']]);
+// 철골권: a low, square horse stance that does not move - one fist chambered at the hip, slow breathing
+const IB_ST = look({ pel: [2, -14, 0], s1: [5, 4, 0], s3: [2, 6, 0], uaL: [-58, -8, 8], laL: -52, uaR: [16, 4, -14], laR: -116, thL: [-56, 24, 28], cL: 70, fL: [-14, 0, -24], thR: [-48, -20, -28], cR: 66, fR: [-18, 0, 24] });
+def('ib_idle_Loop', [[0, IB_ST], [44, look({ ...IB_ST, pel: [3, -14, 0], s1: [8, 4, 0], uaL: [-55, -8, 9], laL: -56, thL: [-60, 24, 28], cL: 77, fL: [-17, 0, -24], thR: [-52, -20, -28], cR: 73, fR: [-21, 0, 24] })], [88, IB_ST]]);
+
 function runCycle(name: string, n: number, th: number, lean: number, arm: number, bounce: number, loco: number) {
   const body = { pel: [lean * 0.45, -9, 0], s1: [lean * 0.55, 5, 0], s3: [0, 12, 0] };
   const con = look({ ...body, thL: [-th, 0, 3], cL: th * 0.3, fL: 8, thR: [th * 0.8, 0, -3], cR: 35 + th * 0.6, fR: 35, uaR: [-arm, 0, -12], laR: -100, uaL: [arm * 0.9, 0, 14], laL: -80 });
@@ -197,6 +207,22 @@ def('Punch_Jab', [[0, ST], [4, JAB_W, 'out'], ...imp(7, JAB_W, JAB, 'hand_l', 6,
 const CROSS_W = S({ pel: [0, -54, 0], s1: [6, 0, 0], s3: [4, -4, 0], uaR: [22, 28, -30], laR: -124, uaL: [-62, 4, 10], laL: -78, thL: [-42, 49, 10], cL: 56, fL: -14, thR: [6, 9, -14], cR: 46, fR: -34, p: [0, 0, -0.06] });
 const CROSS = S({ pel: [0, 26, 0], s1: [11, 10, 0], s3: [7, 14, 0], uaR: [-94, -48, 0], laR: -4, uaL: [32, -10, 24], laL: -126, thL: [-44, -28, 6], cL: 52, fL: -8, thR: [34, -42, -8], cR: 12, fR: -46, p: [0, 0, 0.15] });
 def('Punch_Cross', [[0, ST], [6, CROSS_W, 'out'], ...imp(10, CROSS_W, CROSS, 'hand_r', 7, 1.6), [34, ST]]);
+
+// 태권도 정권지르기: no wind-up to speak of - the fist fires from the hip while the other hand snaps back to the belt
+const TKP_W = S({ pel: [0, -42, 0], uaR: [22, 12, -14], laR: -112, uaL: [-72, 26, 4], laL: -22, p: [0, 0, 0.02] });
+const TKP = S({ pel: [0, 8, 0], s1: [4, 6, 0], s3: [2, 8, 0], uaR: [-90, -30, 0], laR: -2, uaL: [26, -6, 16], laL: -118, thL: [-36, -10, 8], cL: 42, fL: -8, thR: [24, -26, -10], cR: 14, fR: -40, p: [0, 0, 0.1] });
+const TKP2 = S({ pel: [0, -60, 0], s1: [4, -6, 0], s3: [2, -6, 0], uaL: [-90, 58, 0], laL: -2, uaR: [26, 8, -16], laR: -118, thL: [-38, 54, 8], cL: 42, fL: -6, thR: [20, 16, -10], cR: 18, fR: -40, p: [0, 0, 0.1] });
+def('tk_punch', [[0, ST], [2, TKP_W, 'out'], ...imp(5, TKP_W, TKP, 'hand_r', 4, 1.3), [17, ST]]);
+def('tk_punch2', [[0, TKP], ...imp(4, TKP, TKP2, 'hand_l', 4, 1.3), [16, ST]]);
+def('tk_punch3', [[0, TKP2], ...imp(4, TKP2, TKP, 'hand_r', 5, 1.4), [20, ST]]);
+// 철골권 직권: sink, load the hip for a long beat, then the whole body drops behind one fist and stays there
+const IBP_W = S({ pel: [5, -60, 0], s1: [12, -6, 0], s3: [6, -6, 0], uaR: [34, 18, -16], laR: -122, uaL: [-76, 44, 4], laL: -18, thL: [-62, 54, 16], cL: 82, fL: -20, thR: [-22, 14, -22], cR: 70, fR: -46, p: [0, 0, -0.1] });
+const IBP = S({ pel: [8, 32, 0], s1: [12, 10, 0], s3: [6, 14, 0], uaR: [-88, -56, 0], laR: -2, uaL: [32, -8, 18], laL: -124, thL: [-66, -32, 10], cL: 78, fL: -10, thR: [38, -48, -8], cR: 10, fR: -46, p: [0, 0, 0.26] });
+def('ib_straight', [[0, ST], [9, IBP_W, 'out'], [12, S({ ...IBP_W, p: [0, 0, -0.12] })], ...imp(16, IBP_W, IBP, 'hand_r', 13, 1.9), [50, ST]]);
+// 철골권 역권: the other fist, thrown the same way - the whole body winds the opposite direction first
+const IBH_W = S({ pel: [5, 40, 0], s1: [12, 8, 0], s3: [6, 8, 0], uaL: [34, -18, 16], laL: -122, uaR: [-76, -44, -4], laR: -18, thL: [-60, -36, 14], cL: 80, fL: -18, thR: [-20, -40, -20], cR: 68, fR: -44, p: [0, 0, -0.08] });
+const IBH = S({ pel: [8, -54, 0], s1: [12, -8, 0], s3: [6, -10, 0], uaL: [-88, 52, 0], laL: -2, uaR: [32, 8, -18], laR: -124, thL: [-66, 50, 10], cL: 80, fL: -8, thR: [36, 16, -8], cR: 12, fR: -46, p: [0, 0, 0.28] });
+def('ib_hook', [[0, ST], [10, IBH_W, 'out'], ...imp(16, IBH_W, IBH, 'hand_l', 12, 1.9), [48, ST]]);
 
 // hook (lead hand): the arm stays bent, the body whips it round
 const HOOK_W = S({ pel: [0, -62, 0], s1: [8, -6, 0], s3: [4, -8, 0], uaL: [0, 30, 78], laL: -80, uaR: [-30, 10, -20], laR: -130, thL: [-40, 56, 8], cL: 52, fL: -12, thR: [8, 14, -12], cR: 42, fR: -34, p: [0, 0, -0.04] });

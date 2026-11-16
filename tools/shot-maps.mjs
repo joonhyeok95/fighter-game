@@ -17,7 +17,7 @@ for (const id of maps) {
   for (let k = 2; k <= 3; k++) {
     await p.evaluate(() => {
       const g = window.__sa; const P = g.player; let t = 0;
-      while (t < 2500) { g.tick(); t++; if (t > 240 && P && P.state === 'attack' && P.freeze > 2) break; }
+      while (t < 2500) { g.tick(); t++; if (t > 240 && P && P.state === 'attack' && P.hitT > 0) break; }
       g.render();
     });
     await p.waitForTimeout(300); await p.screenshot({ path: `shots/${pre}_${id}_${k}.jpg`, type: 'jpeg', quality: 85 });

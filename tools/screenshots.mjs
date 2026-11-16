@@ -63,7 +63,7 @@ if (want('04')) {
 // ---------------------------------------------------------------- live battle with HUD (AI drives the player too)
 if (want('05') || want('06')) {
   await ev(() => { const g = window.__sa; g.manual = false; g.match = { ai: 3, difficulty: 'hard', wins: 2, practice: false }; g.pcfg = { body: 'male', suit: 0x2f6fdb, style: 'kickboxing' }; g.autopilot = true; g.startMatch(); });
-  await p.waitForFunction(() => { const g = window.__sa; const P = g.player; return P.combo >= 2 && P.state === 'attack' && P.cancelWindow() && P.freeze > 0; }, null, { timeout: 90000, polling: 16 }).catch(() => console.log('no combo moment'));
+  await p.waitForFunction(() => { const g = window.__sa; const P = g.player; return P.combo >= 2 && P.state === 'attack' && P.cancelWindow() && P.hitT > 0; }, null, { timeout: 90000, polling: 16 }).catch(() => console.log('no combo moment'));
   await ev(() => { window.__sa.manual = true; }); if (want('05')) await shot('05_battle_combo_guide'); await ev(() => { window.__sa.manual = false; });
   await p.waitForFunction(() => { const g = window.__sa; return g.fighters.some((f) => f.state === 'launched' && f.pos.y > 0.9 && f.pos.distanceTo(g.player.pos) < 6); }, null, { timeout: 90000, polling: 16 }).catch(() => console.log('no launch moment'));
   await ev(() => { window.__sa.manual = true; }); if (want('06')) await shot('06_battle_juggle'); await ev(() => { window.__sa.manual = false; window.__sa.autopilot = false; });
