@@ -1,2 +1,16 @@
+
 import { defineConfig } from 'vite';
-export default defineConfig({ server: { port: 5173, strictPort: true }, build: { chunkSizeWarningLimit: 2000 } });
+
+export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    strictPort: true,
+    allowedHosts: [
+      'fighter-game-semk.onrender.com'
+    ]
+  },
+  build: {
+    chunkSizeWarningLimit: 2000
+  }
+});
