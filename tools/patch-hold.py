@@ -1,0 +1,12 @@
+def must(s, a, b):
+    assert a in s, a[:80]; return s.replace(a, b, 1)
+p = 'src/fighter.ts'; s = open(p, encoding='utf-8').read()
+s = must(s, "    if (this.animDone()) this.toNeutral();", "    if (this.animDone()) {\n      // 텀 연계 (chainHold styles): after a landed hit the stance is held a moment longer, so the follow-up can come late\n      const hold = !!this.style.chainHold && this.hitDone.size > 0 && !!m.next && this.grounded && !this.ctrl.guard && !this.ctrl.jump && !this.ctrl.dash;\n      if (!hold || ++this.holdT > HOLD_MAX) this.toNeutral();\n    }")
+s = must(s, "  steered = false;", "  steered = false;\n  /** ticks spent holding the end of an attack, waiting for a late follow-up */\n  holdT = 0;")
+s = must(s, "this.move = m; this.hitDone.clear();", "this.move = m; this.holdT = 0; this.hitDone.clear();")
+s = must(s, "export const STEER_MAX", "/** how long a 텀 연계 style can sit on the end of a landed attack before the chain is lost, in ticks */\nexport const HOLD_MAX = 14;\nexport const STEER_MAX")
+open(p, 'w', encoding='utf-8', newline='\n').write(s)
+p = 'tools/test-rules.mjs'; s = open(p, encoding='utf-8').read()
+s = must(s, "out.late = play(['K', 'K', 'K'], 34); out.tkLate = play(['K', 'K', 'K'], 34, 'taekwondo');", "out.late = play(['K', 'K', 'K'], 40); out.tkLate = play(['K', 'K', 'K'], 40, 'taekwondo');")
+s = must(s, "r.late.ids === 'jt_front>jt_round>jt_spin' && !r.tkLate.ids.includes('tk_round>tk_back')", "r.late.ids === 'jt_front>jt_round>jt_spin' && !r.tkLate.ids.includes('tk_round')")
+open(p, 'w', encoding='utf-8', newline='\n').write(s)

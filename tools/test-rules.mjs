@@ -78,6 +78,29 @@ ok('앞으로 누른 채 연타: 콤보 유지', r.combo >= 2, `${r.combo}타 ${
 r = await p.evaluate(() => { const [a, v] = T.duel('kickboxing', 1.1); a.yaw = 1.2; const hp0 = v.hp; T.run((i) => ({ J: i === 0 }), {}, 40); let d = Math.atan2(v.pos.x - a.pos.x, v.pos.z - a.pos.z) - a.yaw; return { d: Math.abs(Math.atan2(Math.sin(d), Math.cos(d))), yaw: a.yaw, dmg: hp0 - v.hp }; });
 ok('첫 타도 자동으로 적을 보지 않는다', Math.abs(r.yaw - 1.2) < 1e-6 && r.dmg === 0, `yaw ${deg(r.yaw)}°, 피해 ${r.dmg}`);
 
+// 3b. 진태권도: the five routes, kick travel, delayed follow-ups
+r = await p.evaluate(() => {
+  const out = {};
+  const play = (keys, gap, style = 'jintk', dist = 1.0) => {
+    const [a, v] = T.duel(style, dist); const hp0 = v.hp; const ids = []; const st = new Set();
+    T.run((i) => { const k = keys[i / gap]; return i % gap === 0 && k ? { [k]: true } : {}; }, {}, keys.length * gap + 90, () => { const id = a.move?.id; if (id && ids[ids.length - 1] !== id) ids.push(id); st.add(v.state); });
+    return { ids: ids.join('>'), dmg: hp0 - v.hp, combo: a.stats.maxCombo, down: st.has('launched') || st.has('down'), z: a.pos.z };
+  };
+  out.pp = play(['J', 'J'], 12); out.kk = play(['K', 'K'], 16); out.kkk = play(['K', 'K', 'K'], 16);
+  out.ppk = play(['J', 'J', 'K'], 12); out.pkkk = play(['J', 'K', 'K', 'K'], 16);
+  out.late = play(['K', 'K', 'K'], 40); out.tkLate = play(['K', 'K', 'K'], 40, 'taekwondo');
+  out.far = play(['K'], 16, 'jintk', 2.1); out.tkFar = play(['K'], 16, 'taekwondo', 2.1);
+  return out;
+});
+const J = (o) => `${o.ids} · ${o.combo}타 ${o.dmg}`;
+ok('진태권도 X X: 정권 연속', r.pp.ids === 'jt_punch>jt_punch2' && r.pp.combo === 2, J(r.pp));
+ok('진태권도 C C: 연속 발차기', r.kk.ids === 'jt_front>jt_round' && r.kk.combo === 2, J(r.kk));
+ok('진태권도 C C C: 3단 발차기 (다운)', r.kkk.ids === 'jt_front>jt_round>jt_spin' && r.kkk.combo === 3 && r.kkk.down, J(r.kkk));
+ok('진태권도 X X C: 정권 후 옆차기 (다운)', r.ppk.ids === 'jt_punch>jt_punch2>jt_side' && r.ppk.combo === 3 && r.ppk.down, J(r.ppk));
+ok('진태권도 X C C C: 정권 후 연속 발차기 (다운)', r.pkkk.ids === 'jt_punch>jt_front>jt_round>jt_spin' && r.pkkk.combo === 4 && r.pkkk.down, J(r.pkkk));
+ok('진태권도: 발차기 전진 거리가 태권도보다 길다', r.far.dmg > 0 && r.tkFar.dmg === 0 && r.far.z > r.tkFar.z + 0.15, `2.1m 밖에서 C: 진태권도 ${r.far.z.toFixed(2)}m 전진·피해 ${r.far.dmg} / 태권도 ${r.tkFar.z.toFixed(2)}m·피해 ${r.tkFar.dmg}`);
+ok('진태권도: 텀을 두고 눌러도 이어진다 (태권도는 끊김)', r.late.ids === 'jt_front>jt_round>jt_spin' && !r.tkLate.ids.includes('tk_round'), `${r.late.ids} / ${r.tkLate.ids}`);
+
 // 4. practice: map picker on the select screen
 await p.evaluate(() => { const g = window.__sa; g.manual = false; g.go('menu'); g.match = { ai: 1, difficulty: 'easy', wins: 2, practice: true }; g.go('select'); });
 await p.waitForTimeout(500);

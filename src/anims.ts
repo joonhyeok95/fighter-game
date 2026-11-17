@@ -212,6 +212,14 @@ def('Punch_Cross', [[0, ST], [6, CROSS_W, 'out'], ...imp(10, CROSS_W, CROSS, 'ha
 const TKP_W = S({ pel: [0, -42, 0], uaR: [22, 12, -14], laR: -112, uaL: [-72, 26, 4], laL: -22, p: [0, 0, 0.02] });
 const TKP = S({ pel: [0, 8, 0], s1: [4, 6, 0], s3: [2, 8, 0], uaR: [-90, -30, 0], laR: -2, uaL: [26, -6, 16], laL: -118, thL: [-36, -10, 8], cL: 42, fL: -8, thR: [24, -26, -10], cR: 14, fR: -40, p: [0, 0, 0.1] });
 const TKP2 = S({ pel: [0, -60, 0], s1: [4, -6, 0], s3: [2, -6, 0], uaL: [-90, 58, 0], laL: -2, uaR: [26, 8, -16], laR: -118, thL: [-38, 54, 8], cL: 42, fL: -6, thR: [20, 16, -10], cR: 18, fR: -40, p: [0, 0, 0.1] });
+// 진태권도: a long, low front stance. The lead fist drives out over the front knee, then the rear fist follows through the hips
+const JT_ST = look({ pel: [0, -34, 0], s1: [8, 8, 0], s3: [5, 10, 0], uaL: [-58, -6, 12], laL: -96, uaR: [-34, 12, -16], laR: -128, thL: [-44, 30, 16], cL: 56, fL: -10, thR: [22, -18, -20], cR: 46, fR: -34 });
+def('jt_idle_Loop', [[0, JT_ST], [30, look({ ...JT_ST, s1: [10, 8, 0], uaL: [-54, -6, 12], laL: -100, thL: [-48, 30, 16], cL: 62, thR: [24, -18, -20], cR: 50 }), 'io'], [60, JT_ST, 'io']]);
+const JTP_W = S({ pel: [0, -18, 0], s1: [6, 12, 0], uaL: [16, -14, 16], laL: -118, uaR: [-40, 14, -16], laR: -120, thL: [-40, 22, 12], cL: 52, p: [0, 0, -0.04] });
+const JTP1 = S({ pel: [0, -62, 0], s1: [7, -6, 0], s3: [4, -8, 0], uaL: [-90, 60, 0], laL: -2, uaR: [30, 8, -16], laR: -122, thL: [-56, 56, 8], cL: 66, fL: -10, thR: [32, 18, -10], cR: 8, fR: -42, p: [0, 0, 0.24] });
+const JTP2 = S({ pel: [0, 28, 0], s1: [11, 10, 0], s3: [7, 14, 0], uaR: [-94, -48, 0], laR: -4, uaL: [32, -10, 24], laL: -126, thL: [-52, -28, 6], cL: 62, fL: -8, thR: [36, -42, -8], cR: 8, fR: -46, p: [0, 0, 0.26] });
+def('jt_punch', [[0, ST], [3, JTP_W, 'out'], ...imp(7, JTP_W, JTP1, 'hand_l', 6, 1.5), [28, ST]]);
+def('jt_punch2', [[0, JTP1], [3, { ...JTP1, uaR: [24, 20, -24], laR: -126 }, 'out'], ...imp(7, JTP1, JTP2, 'hand_r', 7, 1.6), [30, ST]]);
 def('tk_punch', [[0, ST], [2, TKP_W, 'out'], ...imp(5, TKP_W, TKP, 'hand_r', 4, 1.3), [17, ST]]);
 def('tk_punch2', [[0, TKP], ...imp(4, TKP, TKP2, 'hand_l', 4, 1.3), [16, ST]]);
 def('tk_punch3', [[0, TKP2], ...imp(4, TKP2, TKP, 'hand_r', 5, 1.4), [20, ST]]);

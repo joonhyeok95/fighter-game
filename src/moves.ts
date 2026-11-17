@@ -14,7 +14,7 @@ export interface MoveDef {
   kb: [number, number];        // knockback: horizontal, vertical (m/s)
   next?: { J?: string; K?: string; S?: string };
   hitCount?: number;           // >1 = multi-hit (peaks detected from the clip)
-  guardBreak?: boolean; armor?: boolean; radial?: number; reach?: number; lunge?: number;
+  guardBreak?: boolean; armor?: boolean; radial?: number; reach?: number; lunge?: number; /** forward travel (m/s) that stops at striking distance */ step?: number;
   air?: boolean; mp?: number; invuln?: number; special?: Special; low?: boolean;
   weight?: 1 | 2 | 3;          // hit-feel weight (hit-stop, shake, sound)
   nanmu?: boolean;             // part of the 난무 rush (V mash): chains only on hit, never trips the stun-lock breaker
@@ -48,6 +48,13 @@ export const MOVES: Record<string, MoveDef> = {
   tk_back: M({ id: 'tk_back', name: '뒤후려차기', anim: 'kick_back_spin', speed: 1, dmg: 100, type: 'knockdown', kb: [10, 3.2], reach: 0.15, weight: 3 }),
   tk_side: M({ id: 'tk_side', name: '옆차기', anim: 'kick_side', speed: 1, dmg: 85, type: 'knockdown', kb: [11, 2.8], reach: 0.2, weight: 3 }),
   tk_double: M({ id: 'tk_double', name: '나래차기 (띄우기)', anim: 'kick_double', speed: 1, dmg: 40, hitCount: 2, type: 'launch', hitstun: 22, kb: [0.8, 6.4], lunge: 2.2, weight: 2 }),
+  // ===== 진태권도 ===== 품새의 긴 앞굽이에서 나오는 정권 2개 + 전진하는 발차기 4개. 연계: X X / X X C / C C C / X C C C
+  jt_punch: M({ id: 'jt_punch', name: '앞굽이 정권', anim: 'jt_punch', speed: 1, dmg: 30, type: 'light', hitstun: 22, kb: [1.4, 0], step: 2.4, weight: 1, next: { J: 'jt_punch2', K: 'jt_front' } }),
+  jt_punch2: M({ id: 'jt_punch2', name: '반대 지르기', anim: 'jt_punch2', speed: 1, dmg: 38, type: 'light', hitstun: 24, kb: [1.8, 0], step: 2.2, weight: 2, next: { K: 'jt_side' } }),
+  jt_front: M({ id: 'jt_front', name: '밀어 앞차기', anim: 'kick_front', speed: 1, dmg: 62, type: 'light', hitstun: 30, kb: [2.4, 0], reach: 0.15, step: 5.2, weight: 2, next: { K: 'jt_round' } }),
+  jt_round: M({ id: 'jt_round', name: '돌려차기', anim: 'kick_round', speed: 1, dmg: 82, type: 'light', hitstun: 32, kb: [2.8, 0], reach: 0.15, step: 4.4, weight: 2, next: { K: 'jt_spin' } }),
+  jt_spin: M({ id: 'jt_spin', name: '회전 발차기', anim: 'kick_spin', speed: 1, dmg: 120, type: 'knockdown', kb: [10.5, 3.4], reach: 0.15, step: 4.0, weight: 3 }),
+  jt_side: M({ id: 'jt_side', name: '옆차기', anim: 'kick_side', speed: 1, dmg: 95, type: 'knockdown', kb: [11, 2.8], reach: 0.2, step: 4.4, weight: 3 }),
   tk_tornado: M({ id: 'tk_tornado', name: '540 회전차기', anim: 'kick_tornado', speed: 1, dmg: 110, type: 'knockdown', kb: [9, 4], weight: 3, reach: 0.15 }),
   tk_jumpside: M({ id: 'tk_jumpside', name: '이단 옆차기', anim: 'kick_jump', speed: 1, dmg: 90, type: 'knockdown', kb: [10, 3.5], lunge: 7, weight: 3 }),
 
@@ -132,7 +139,7 @@ export const MOVES: Record<string, MoveDef> = {
 export interface StyleDef {
   id: string; name: string; color: number; concept: string; desc: string; traits: string[];
   J: string; K: string; S: string; dashJ: string; dashK: string; dashS: string; air: string;
-  grabRange: number; impact?: number; moveSpeed?: number; anims?: Record<string, string>; doubleJump?: boolean; counterThrow?: boolean; comboGrab?: boolean; poison?: boolean; dmgTaken?: number;
+  grabRange: number; impact?: number; moveSpeed?: number; /** extra frames the follow-up window stays open after a landed hit */ chainHold?: number; anims?: Record<string, string>; doubleJump?: boolean; counterThrow?: boolean; comboGrab?: boolean; poison?: boolean; dmgTaken?: number;
   stats: { 속도: number; 리치: number; 콤보: number; 파워: number; 잡기: number };
   combos: string[]; // recommended routes shown in the move list / guide
 }
@@ -153,6 +160,14 @@ export const STYLES: Record<string, StyleDef> = {
     J: 'tk_punch', K: 'tk_front', S: 'tk_tornado', dashJ: 'rush', dashK: 'tk_jumpside', dashS: 'tk_tornado', air: 'jumpkick',
     grabRange: 1.2, moveSpeed: 1.06, anims: { Idle_Loop: 'tk_idle_Loop' }, stats: { 속도: 5, 리치: 5, 콤보: 5, 파워: 3, 잡기: 1 },
     combos: ['X X X C — 정권 3연타 · 옆차기 (다운·링아웃)', 'X C C C — 정권 · 앞차기 · 돌려차기 · 뒤후려차기 (다운)', 'C C X — 앞차기 · 돌려차기 · 뒤돌려차기 (다운·링아웃)', 'C X — 앞차기 · 나래차기 (띄우기) → 점프 → C', 'V — 540 회전차기 · 대시 C — 이단 옆차기'],
+  },
+  jintk: {
+    id: 'jintk', name: '진태권도', color: 0x7c6cf5, concept: '품새의 앞굽이, 전진하는 강한 발차기, 텀을 두는 심리전',
+    desc: '낮고 긴 앞굽이로 버티다가 정권으로 문을 열고, 한 발 한 발 앞으로 밀고 들어가는 발차기로 압박한다. 맞힌 뒤에는 다음 타를 늦게 눌러도 이어져서, 박자를 바꿔 상대의 가드와 반격을 흔들 수 있다.',
+    traits: ['발차기마다 크게 전진한다 (거리 압박)', '발차기 피해가 태권도보다 높다 (회전 발차기 120)', '텀 연계: 맞힌 뒤 다음 입력을 늦게 눌러도 이어진다', '정권은 태권도보다 느리지만 묵직하다'],
+    J: 'jt_punch', K: 'jt_front', S: 'tk_tornado', dashJ: 'rush', dashK: 'tk_jumpside', dashS: 'tk_tornado', air: 'jumpkick',
+    grabRange: 1.2, chainHold: 16, anims: { Idle_Loop: 'jt_idle_Loop' }, stats: { 속도: 3, 리치: 5, 콤보: 4, 파워: 4, 잡기: 1 },
+    combos: ['X X — 앞굽이 정권 · 반대 지르기 (기본 견제)', 'C C — 밀어 앞차기 · 돌려차기 (거리 압박)', 'C C C — 앞차기 · 돌려차기 · 회전 발차기 (다운)', 'X X C — 정권 2연타 · 옆차기 (다운·링아웃)', 'X C C C — 정권 · 앞차기 · 돌려차기 · 회전 발차기 (다운)'],
   },
   jujutsu: {
     id: 'jujutsu', name: '유술', color: 0xf59e0b, concept: '잡기와 던지기의 달인',
@@ -203,4 +218,4 @@ for (const st of Object.values(STYLES)) {
 }
 export const STYLE_IDS = Object.keys(STYLES);
 /** styles open for play right now (the others are being reworked one by one) */
-export const OPEN_STYLES = ['taekwondo', 'ironbone'];
+export const OPEN_STYLES = ['taekwondo', 'jintk', 'ironbone'];

@@ -28,6 +28,8 @@ export interface Ctrl {
   J: boolean; K: boolean; S: boolean; jump: boolean; Jh?: boolean; grab: boolean; counter: boolean; transform: boolean; s1: boolean; s2: boolean;
 }
 /** how far one follow-up attack can be turned with the stick */
+/** how long a 텀 연계 style can sit on the end of a landed attack before the chain is lost, in ticks */
+export const HOLD_MAX = 14;
 export const STEER_MAX = Math.PI / 4;
 export const emptyCtrl = (): Ctrl => ({ mx: 0, mz: 0, dash: false, guard: false, J: false, K: false, S: false, jump: false, grab: false, counter: false, transform: false, s1: false, s2: false });
 const BUFFERED: (keyof Ctrl)[] = ['J', 'K', 'S', 'jump', 'grab', 'counter', 'transform', 's1', 's2'];
@@ -57,6 +59,8 @@ export class Fighter {
   grabbedBy?: Fighter; holding?: Fighter; throwKind: 'normal' | 'over' | 'hip' | 'counter' = 'normal';
   /** the current attack was aimed with the stick, so it does not auto-face a target */
   steered = false;
+  /** ticks spent holding the end of an attack, waiting for a late follow-up */
+  holdT = 0;
   /** over-the-shoulder throws: the opponent is carried up and dropped behind */
   get overThrow() { return this.throwKind === 'hip' || this.throwKind === 'over'; }
   ctrl: Ctrl = emptyCtrl(); prev: Ctrl = emptyCtrl(); buf: Partial<Record<keyof Ctrl, number>> = {};
@@ -132,7 +136,7 @@ export class Fighter {
   startMove(id: string, world: World) {
     const m = MOVES[id]; if (!m) return;
     if (m.mp) { if (this.mp < m.mp) return; this.mp -= m.mp; }
-    this.move = m; this.hitDone.clear(); this.queued = undefined; this.queuedGrab = false; this.specialDone = false;
+    this.move = m; this.holdT = 0; this.hitDone.clear(); this.queued = undefined; this.queuedGrab = false; this.specialDone = false;
     this.chargeT = m.charge ? 0 : -1; this.charged = false;
     if (this.ctrl.dash) this.dashLock = true; // a running attack ends the run
     // a follow-up attack can be steered: holding a direction turns it up to 45 degrees from where the last one pointed
@@ -293,7 +297,16 @@ export class Fighter {
       if (t >= holdAt) { this.charged = this.chargeT >= 20; this.chargeT = -1; if (this.cur) this.cur.timeScale = m.speed; }
     }
     // movement during the move
-    if (m.lunge && t < lastTo) { const f = this.forward(); this.vel.x = f.x * m.lunge; this.vel.z = f.z * m.lunge; }
+    if (m.step && this.grounded && t < lastTo) {
+      // advancing strike: walks the attack forward, but pulls up at striking distance instead of running through the target
+      const f = this.forward(); let sp = m.step; const tgt = world.nearestEnemy(this, 3);
+      if (tgt && first) {
+        const d = tgt.pos.clone().sub(this.pos); d.y = 0; const dist = d.length() || 1; const want = first.limb.startsWith('foot') ? 0.98 : 0.84;
+        if ((d.x * f.x + d.z * f.z) / dist > 0.6) sp = dist > want ? Math.min(m.step, (dist - want) * 8) : 0;
+      }
+      this.vel.x = f.x * sp; this.vel.z = f.z * sp;
+    }
+    else if (m.lunge && t < lastTo) { const f = this.forward(); this.vel.x = f.x * m.lunge; this.vel.z = f.z * m.lunge; }
     else if (this.grounded && first && t < first.from && !m.radial && !m.special) {
       // homing step: close the gap to a target in front so strikes connect
       const tgt = world.nearestEnemy(this, 2.6); const want = first.limb.startsWith('foot') ? 0.88 : first.limb.startsWith('hand') ? 0.74 : 0.62;
@@ -311,7 +324,7 @@ export class Fighter {
     // combo inputs (buffered): J / K / S branch, U = grab cancel (jujutsu)
     // chain window: from the first active frame until ~10F after the last hit. Later presses don't chain;
     // a late X instead cuts the recovery into a fresh first punch ("끊치": repeated single jabs)
-    const chainOpen = m.nanmu || t <= lastTo + ((this.hitDone.size > 0 ? 13 : 6) / 60) * m.speed; // a landed hit keeps the follow-up window open longer (there is no hit-stop to think in)
+    const chainOpen = m.nanmu || t <= lastTo + ((this.hitDone.size > 0 ? 13 + (this.style.chainHold ?? 0) : 6) / 60) * m.speed; // a landed hit keeps the follow-up window open longer (there is no hit-stop to think in)
     const jabChain = m.id === this.style.J || MOVES[this.style.J]?.next?.J === m.id;
     if (!chainOpen && this.grounded && !this.queued && jabChain && this.hitDone.size > 0 && this.pressed('J')) { this.startMove(this.style.J, world); return; }
     // one queued follow-up per move; an extra press stays buffered for the move after it (fast mashing works)
@@ -340,7 +353,11 @@ export class Fighter {
       if (this.queued) { const q = this.queued; this.queued = undefined; this.startMove(q, world); return; }
     }
     if (!m.special) hits.forEach((h, i) => { if (t >= h.from && t <= h.to) world.checkHits(this, m, i); });
-    if (this.animDone()) this.toNeutral();
+    if (this.animDone()) {
+      // 텀 연계 (chainHold styles): after a landed hit the stance is held a moment longer, so the follow-up can come late
+      const hold = !!this.style.chainHold && this.hitDone.size > 0 && !!m.next && this.grounded && !this.ctrl.guard && !this.ctrl.jump && !this.ctrl.dash;
+      if (!hold || ++this.holdT > HOLD_MAX) this.toNeutral();
+    }
   }
 
   /** whether the "next input" window is open (for the on-screen combo guide) */
